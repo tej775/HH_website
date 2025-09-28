@@ -1,0 +1,11 @@
+.carousel-controls-bottom {
+  position: relative; /* relative to carousel container */
+  bottom: 0;          /* aligned at bottom */
+  width: 100%;
+}
+.charity_para{
+    border: 1px solid grey;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+}
