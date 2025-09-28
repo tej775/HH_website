@@ -1,8 +1,9 @@
 import './App.css';
+import AboutUs from './components/AboutUs';
 
 function App() {
   return (
-    <h1>Hi</h1>
+    <AboutUs></AboutUs>
   );
 }
 
