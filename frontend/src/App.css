@@ -9,3 +9,11 @@
     padding: 5px;
     border-radius: 5px;
 }
+.heading_size{
+    font-size: 1.5rem;
+}
+.card-hover-grey:hover {
+  background-color: #6c757d !important; /* Bootstrap secondary grey */
+  color: white; /* optional, if you want text to contrast */
+  transition: background-color 0.3s ease; /* smooth effect */
+}

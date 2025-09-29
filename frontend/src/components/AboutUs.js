@@ -7,12 +7,13 @@ export default function AboutUs() {
       style={{ paddingTop: "180px" }}
       className="d-flex flex-column justify-content-center align-items-center px-3 px-md-5"
     >
-      <h1 style={{ marginBottom: "96px" }}>
+      <h1 className="heading_size" style={{ marginBottom: "96px"
+      }} >
         A helping hand can be ray of sunshine in a cloudy world
       </h1>
       <div
         className="about_2"
-        style={{ marginTop: "15px", width: "100%", maxWidth: "800px" }}
+        style={{ marginTop: "15px", width: "100%", maxWidth: "800px",color:"white" }}
       >
         <div className="d-flex position-relative">
           <img
@@ -32,7 +33,7 @@ export default function AboutUs() {
             className="p-3 rounded"
             style={{ backgroundColor: "#ffae52", flex: 1, marginLeft: "40px" }}
           >
-            <h1 className="ps-md-5">Evolution</h1>
+            <h1 className="ps-md-5 heading_size" style={{color:"#9f1239"}}>Evolution</h1>
             <p>
               Every journey starts with a single step. A student of RGUKT-Nuzvid
               initiated their journey of service in 2009 by establishing a
@@ -64,7 +65,7 @@ export default function AboutUs() {
             className="p-3 rounded"
             style={{ backgroundColor: "#eb8aeb", flex: 1, marginLeft: "40px" }}
           >
-            <h1 className="ps-md-5">Vision</h1>
+            <h1 className="ps-md-5 heading_size" style={{color:"#4f46e5"}}>Vision</h1>
             <p>
               We, the students of RGUKT-NUZVID, embark on a path with a single
               destination that leads to one aspiration - build a better society.
@@ -78,20 +79,20 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      <h1>Aims and Objectives</h1>
+      <h1 className="heading_size mt-md-5" style={{color:"#7f1d1d"}}>Aims and Objectives</h1>
       <div
         id="carouselExampleAutoplaying"
-        class="carousel slide"
+        class="carousel slide mt-md-3"
         data-bs-ride="carousel"
         data-bs-wrap="true"
         data-bs-interval="3000"
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div class="card-group">
-              <div class="card">
+            <div class="card-group gap-md-3">
+              <div class="card card-hover-grey bg-white rounded">
                 <div class="card-body">
-                  <h5 class="card-title">Daily Needs</h5>
+                  <h5 class="card-title" style={{color:"#581c87"}}>Daily Needs</h5>
                   <p class="card-text">
                     We extend our valuable services by providing daily needs to
                     the students so as to meet the minimum requirements in the
@@ -101,18 +102,18 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div class="card">
+              <div class="card border-start card-hover-grey bg-white rounded">
                 <div class="card-body">
-                  <h5 class="card-title">Financial Support</h5>
+                  <h5 class="card-title" style={{color:"#831843"}}>Financial Support</h5>
                   <p class="card-text">
                     We provide financial support for medical needs and surgeries
                     of the students and staff.
                   </p>
                 </div>
               </div>
-              <div class="card">
+              <div class="card border-start card-hover-grey bg-white rounded">
                 <div class="card-body">
-                  <h5 class="card-title">Health Awareness</h5>
+                  <h5 class="card-title" style={{color:"#fb923c"}}>Health Awareness</h5>
                   <p class="card-text">
                     In continuation of its endeavour towards service and to
                     bring health awareness among students, we periodically
@@ -124,10 +125,10 @@ export default function AboutUs() {
             </div>
           </div>
           <div class="carousel-item">
-            <div class="card-group">
-              <div class="card">
+            <div class="card-group gap-md-3">
+              <div class="card card-hover-grey bg-white rounded ">
                 <div class="card-body">
-                  <h5 class="card-title">Anniversary Celebration</h5>
+                  <h5 class="card-title" style={{color:"#65a30d"}}>Anniversary Celebration</h5>
                   <p class="card-text">
                     On the eve of Mother Teresa's birthday, we celebrate our
                     anniversary every year to encourage and inspire our students
@@ -136,9 +137,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div class="card">
+              <div class="card card-hover-grey bg-white rounded border-start">
                 <div class="card-body">
-                  <h5 class="card-title">Blood Donation</h5>
+                  <h5 class="card-title" style={{color:"#06b6d4"}}>Blood Donation</h5>
                   <p class="card-text">
                     We organize blood donation camps inside the campus in
                     collaboration with other community-level
@@ -146,9 +147,9 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div class="card">
+              <div class="card card-hover-grey bg-white rounded border-end">
                 <div class="card-body">
-                  <h5 class="card-title">Recruitment of Volunteers</h5>
+                  <h5 class="card-title" style={{color:"#a21caf"}}>Recruitment of Volunteers</h5>
                   <p class="card-text">
                     To recruit new volunteers to ensure adequate participation
                     by them in achieving the objects of the Society.
@@ -158,34 +159,39 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
+        <div className="d-flex justify-content-center mt-md-3 gap-md-2">
         <button
-          class="carousel-control-prev"
+          class="carousel-control-prev btn btn-primary p-2"
           type="button"
           data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="prev"
           style={{
             position: "relative",
             bottom: "0",
-            width: "100%",
+           display:"inline-block",
             color: "black",
+            width:"100px",
+            opacity:1,
+            backgroundColor:"rgba(127, 29, 29, 1)"
           }}
         >
           Previous
         </button>
         <button
-          class="carousel-control-next"
+          class="carousel-control-next btn btn-primary p-2"
           type="button"
           data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="next"
           style={{
             position: "relative",
             bottom: "0",
-            width: "100%",
+            display:"inline-block",
             color: "black",
+            width:"100px"
           }}
         >
           Next
-        </button>
+        </button></div>
       </div>
       <div className="departments">
         <h1>Departments</h1>
@@ -203,7 +209,7 @@ export default function AboutUs() {
         >
           <img
             src="/images/charity.jpg"
-            alt=""
+            alt="" height="750px" width="750px"
             className="col-md-6 img-fluid "
             style={{
               borderTopLeftRadius: "50%",
