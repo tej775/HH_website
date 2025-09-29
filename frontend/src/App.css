@@ -4,10 +4,16 @@
   width: 100%;
 }
 .charity_para{
-    border: 1px solid grey;
+    
     width: fit-content;
-    padding: 5px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    word-spacing:6px;
+    width: 100%;
+}
+.charity_para:hover{
+     box-shadow: 0 8px 6px -2px rgba(94, 91, 91, 0.4);
+
 }
 .heading_size{
     font-size: 1.5rem;
@@ -17,3 +23,35 @@
   color: white; /* optional, if you want text to contrast */
   transition: background-color 0.3s ease; /* smooth effect */
 }
+.btn-hover:hover {
+  background-color: rgba(127, 29, 29, 5) !important; /* Bootstrap secondary grey */
+  color: white !important; /* text color on hover */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-hover:active{
+    background-color: rgb(238, 127, 127) !important; /* Bootstrap secondary grey */
+  color: white !important; /* text color on hover */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.shadow-bottom {
+ 
+  box-shadow: 0 8px 6px -2px rgba(94, 91, 91, 0.4); /* X=0 → only vertical */
+
+
+ /* only bottom */
+}
+.organs,.selection{
+    border: 1px solid grey;
+    padding: 25px 40px;
+    background-color: rgb(230, 226, 226);
+    box-shadow: 8px 8px 6px 2px rgba(94, 91, 91, 0.4);
+    width: 100%;
+}
+.volunteer_innerdiv{
+    background-color: rgb(230, 226, 226,0.4);
+    border: 1px solid rgb(105, 104, 104);
+}
+.volunteer_innerdiv p{
+    flex:1
+}
+
