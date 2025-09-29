@@ -95,20 +95,20 @@ export default function AboutUs() {
       </h1>
       <div
         id="carouselExampleAutoplaying"
-        class="carousel slide mt-md-3"
+         className="carousel slide mt-md-3"
         data-bs-ride="carousel"
         data-bs-wrap="true"
         data-bs-interval="3000"
       >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card-group gap-md-3">
-              <div class="card card-hover-grey bg-white rounded">
-                <div class="card-body">
-                  <h5 class="card-title" style={{ color: "#581c87" }}>
+        <div  className="carousel-inner">
+          <div  className="carousel-item active">
+            <div  className="card-group gap-md-3">
+              <div  className="card card-hover-grey bg-white rounded">
+                <div  className="card-body">
+                  <h5  className="card-title" style={{ color: "#581c87" }}>
                     Daily Needs
                   </h5>
-                  <p class="card-text">
+                  <p  className="card-text">
                     We extend our valuable services by providing daily needs to
                     the students so as to meet the minimum requirements in the
                     campus, travelling allowances on vacation and providing
@@ -117,23 +117,23 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div class="card border-start card-hover-grey bg-white rounded">
-                <div class="card-body">
-                  <h5 class="card-title" style={{ color: "#831843" }}>
+              <div  className="card border-start card-hover-grey bg-white rounded">
+                <div  className="card-body">
+                  <h5  className="card-title" style={{ color: "#831843" }}>
                     Financial Support
                   </h5>
-                  <p class="card-text">
+                  <p  className="card-text">
                     We provide financial support for medical needs and surgeries
                     of the students and staff.
                   </p>
                 </div>
               </div>
-              <div class="card border-start card-hover-grey bg-white rounded">
-                <div class="card-body">
-                  <h5 class="card-title" style={{ color: "#fb923c" }}>
+              <div  className="card border-start card-hover-grey bg-white rounded">
+                <div  className="card-body">
+                  <h5  className="card-title" style={{ color: "#fb923c" }}>
                     Health Awareness
                   </h5>
-                  <p class="card-text">
+                  <p  className="card-text">
                     In continuation of its endeavour towards service and to
                     bring health awareness among students, we periodically
                     conduct Mega health camps, eye camps in the campus for the
@@ -143,14 +143,14 @@ export default function AboutUs() {
               </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="card-group gap-md-3">
-              <div class="card card-hover-grey bg-white rounded ">
-                <div class="card-body">
-                  <h5 class="card-title" style={{ color: "#65a30d" }}>
+          <div  className="carousel-item">
+            <div  className="card-group gap-md-3">
+              <div  className="card card-hover-grey bg-white rounded ">
+                <div  className="card-body">
+                  <h5  className="card-title" style={{ color: "#65a30d" }}>
                     Anniversary Celebration
                   </h5>
-                  <p class="card-text">
+                  <p  className="card-text">
                     On the eve of Mother Teresa's birthday, we celebrate our
                     anniversary every year to encourage and inspire our students
                     towards the motto of service, to promote our achievements
@@ -158,24 +158,24 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div class="card card-hover-grey bg-white rounded border-start">
-                <div class="card-body">
-                  <h5 class="card-title" style={{ color: "#06b6d4" }}>
+              <div  className="card card-hover-grey bg-white rounded border-start">
+                <div  className="card-body">
+                  <h5  className="card-title" style={{ color: "#06b6d4" }}>
                     Blood Donation
                   </h5>
-                  <p class="card-text">
+                  <p  className="card-text">
                     We organize blood donation camps inside the campus in
                     collaboration with other community-level
                     organizations/clubs.
                   </p>
                 </div>
               </div>
-              <div class="card card-hover-grey bg-white rounded border-end">
-                <div class="card-body">
-                  <h5 class="card-title" style={{ color: "#a21caf" }}>
+              <div  className="card card-hover-grey bg-white rounded border-end">
+                <div  className="card-body">
+                  <h5  className="card-title" style={{ color: "#a21caf" }}>
                     Recruitment of Volunteers
                   </h5>
-                  <p class="card-text">
+                  <p  className="card-text">
                     To recruit new volunteers to ensure adequate participation
                     by them in achieving the objects of the Society.
                   </p>
@@ -186,7 +186,7 @@ export default function AboutUs() {
         </div>
         <div className="d-flex justify-content-center mt-md-3 gap-md-2">
           <button
-            class="carousel-control-prev btn btn-hover p-2"
+             className="carousel-control-prev btn btn-hover p-2"
             type="button"
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="prev"
@@ -203,7 +203,7 @@ export default function AboutUs() {
             Previous
           </button>
           <button
-            class="carousel-control-next btn btn-hover  p-2"
+             className="carousel-control-next btn btn-hover  p-2"
             type="button"
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="next"
@@ -387,16 +387,16 @@ export default function AboutUs() {
           staff and outside charity.
         </p>
         <div className="d-flex  rounded p-3 volunteer_innerdiv justify-content-around align-items-stretch gap-4">
-          <p className="border rounded p-4  justify-self-center d-flex flex-column justify-content-center align-items-center" style={{ backgroundColor: "#D1D5DB",margin:"0" }}>
+          <div className="border rounded p-4  justify-self-center d-flex flex-column justify-content-center align-items-center" style={{ backgroundColor: "#D1D5DB",margin:"0" }}>
             <h5 style={{fontWeight:"600",fontSize:"1.125rem"}}>Executive Committe</h5>
-            <p>(Includes students and faculty)</p>
-          </p>
-          <p className="border rounded p-4  d-flex justify-content-center align-items-center" style={{ backgroundColor: "#FECACA",margin:"0"}}>
+            <span>(Includes students and faculty)</span>
+          </div>
+          <div className="border rounded p-4  d-flex justify-content-center align-items-center" style={{ backgroundColor: "#FECACA",margin:"0"}}>
             <h2 style={{fontWeight:"600",fontSize:"1.125rem"}}>Branch/Floor Level Representatives</h2>
-          </p>
-          <p className="border rounded p-4  d-flex justify-content-center align-items-center" style={{ backgroundColor: "#C084FC",margin:"0" }}>
+          </div>
+          <div className="border rounded p-4  d-flex justify-content-center align-items-center" style={{ backgroundColor: "#C084FC",margin:"0" }}>
             <h2 style={{fontWeight:"600",fontSize:"1.125rem"}}>Class Level Representatives(HR)</h2>
-          </p>
+          </div>
         </div>
       </div>
     </div>
