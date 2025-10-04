@@ -2,6 +2,22 @@ import React from "react";
 import "../App.css";
 
 export default function AboutUs() {
+  const about_2 = [
+    {
+      image: "/images/about_us_1.png",
+      bg_clr: "#ffae52",
+      h1_clr: "#9f1239",
+      heading: "Evolution",
+      matter: "Every journey starts with a single step. A student of RGUKT-Nuzvid initiated their journey of service in 2009 by establishing a foundation, Helping Hands. The pupil with social responsibility,noble thoughts, and commitment towards society has evidently proven the strength of a rupee. It mainly focuses on the well-being of the students from the poor background on the campus.This has set a new beginning for many students to let their grievances from their lives and stood as an inspiration to upcoming generations.",
+    },
+    {
+      image: "/images/about_us_2.png",
+      bg_clr: "#eb8aeb",
+      h1_clr: "#4f46e5",
+      heading: "Vision",
+      matter: " We, the students of RGUKT-NUZVID, embark on a path with a single  destination that leads to one aspiration - build a better society. Leadership Skills and Social Responsibility are considered to be paramount. Community service enriches students' interpersonal skills and helps them evolve into active and real citizens responsible for more community building initiatives. We will persist in our service, remaining mindful of our vision and staying true to our motto."
+    },
+  ];
   return (
     <div
       style={{ paddingTop: "180px" }}
@@ -13,18 +29,12 @@ export default function AboutUs() {
       >
         A helping hand can be ray of sunshine in a cloudy world
       </h1>
-      <div
-        className="about_2"
-        style={{
-          marginTop: "15px",
-          width: "100%",
-          maxWidth: "800px",
-          color: "white",
-        }}
-      >
-        <div className="d-flex position-relative">
+      <section className="about_2">
+       { about_2.map((item,index) => {
+            return(
+               <div className="d-flex position-relative">
           <img
-            src="\images\about_us_1.png"
+            src={item.image}
             alt=""
             height="100px"
             width="100px"
@@ -34,81 +44,42 @@ export default function AboutUs() {
               left: "0",
               transform: "translateY(-50%)",
             }}
-          />
-
+          />  
           <div
-            className="p-3 rounded"
-            style={{ backgroundColor: "#ffae52", flex: 1, marginLeft: "40px" }}
+            className="p-3 rounded mb-3"
+            style={{ backgroundColor:`${item.bg_clr}`, flex: 1,marginLeft:"40px" }}
           >
-            <h1 className="ps-md-5 heading_size" style={{ color: "#9f1239" }}>
-              Evolution
-            </h1>
+            <h2 className="ps-md-5 heading_size " style={{ color: `${item.h1_clr}`,textAlign:"left" }}>
+              {item.heading}
+            </h2>
             <p>
-              Every journey starts with a single step. A student of RGUKT-Nuzvid
-              initiated their journey of service in 2009 by establishing a
-              foundation, Helping Hands. The pupil with social responsibility,
-              noble thoughts, and commitment towards society has evidently
-              proven the strength of a rupee. It mainly focuses on the
-              well-being of the students from the poor background on the campus.
-              This has set a new beginning for many students to let their
-              grievances from their lives and stood as an inspiration to
-              upcoming generations.
+              {item.matter}
             </p>
           </div>
         </div>
-        <div className="d-flex position-relative mt-md-3">
-          <img
-            src="\images\about_us_2.png"
-            alt=""
-            height="100px"
-            width="100px"
-            style={{
-              position: "absolute",
-              top: "0",
-              left: "0",
-              transform: "translateY(-50%)",
-            }}
-          />
-
-          <div
-            className="p-3 rounded"
-            style={{ backgroundColor: "#eb8aeb", flex: 1, marginLeft: "40px" }}
-          >
-            <h1 className="ps-md-5 heading_size" style={{ color: "#4f46e5" }}>
-              Vision
-            </h1>
-            <p>
-              We, the students of RGUKT-NUZVID, embark on a path with a single
-              destination that leads to one aspiration - build a better society.
-              Leadership Skills and Social Responsibility are considered to be
-              paramount. Community service enriches students' interpersonal
-              skills and helps them evolve into active and real citizens
-              responsible for more community building initiatives. We will
-              persist in our service, remaining mindful of our vision and
-              staying true to our motto.
-            </p>
-          </div>
-        </div>
-      </div>
-      <h1 className="heading_size mt-md-5" style={{ color: "#7f1d1d" }}>
+            )
+        })}        
+      </section>
+      <section className="aims_n_objectives">
+      <h2 className="heading_size  text-center" style={{ color: "#7f1d1d" }}>
         Aims and Objectives
-      </h1>
+      </h2>
       <div
         id="carouselExampleAutoplaying"
-         className="carousel slide mt-md-3"
+        className="carousel slide mt-md-3"
         data-bs-ride="carousel"
         data-bs-wrap="true"
         data-bs-interval="3000"
       >
-        <div  className="carousel-inner">
-          <div  className="carousel-item active">
-            <div  className="card-group gap-md-3">
-              <div  className="card card-hover-grey bg-white rounded">
-                <div  className="card-body">
-                  <h5  className="card-title" style={{ color: "#581c87" }}>
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <div className="card-group gap-md-3">
+              <div className="card card-hover-grey bg-white rounded">
+                <div className="card-body">
+                  <h5 className="card-title" style={{ color: "#581c87" }}>
                     Daily Needs
                   </h5>
-                  <p  className="card-text">
+                  <p className="card-text">
                     We extend our valuable services by providing daily needs to
                     the students so as to meet the minimum requirements in the
                     campus, travelling allowances on vacation and providing
@@ -117,23 +88,23 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div  className="card border-start card-hover-grey bg-white rounded">
-                <div  className="card-body">
-                  <h5  className="card-title" style={{ color: "#831843" }}>
+              <div className="card border-start card-hover-grey bg-white rounded">
+                <div className="card-body">
+                  <h5 className="card-title" style={{ color: "#831843" }}>
                     Financial Support
                   </h5>
-                  <p  className="card-text">
+                  <p className="card-text">
                     We provide financial support for medical needs and surgeries
                     of the students and staff.
                   </p>
                 </div>
               </div>
-              <div  className="card border-start card-hover-grey bg-white rounded">
-                <div  className="card-body">
-                  <h5  className="card-title" style={{ color: "#fb923c" }}>
+              <div className="card border-start card-hover-grey bg-white rounded">
+                <div className="card-body">
+                  <h5 className="card-title" style={{ color: "#fb923c" }}>
                     Health Awareness
                   </h5>
-                  <p  className="card-text">
+                  <p className="card-text">
                     In continuation of its endeavour towards service and to
                     bring health awareness among students, we periodically
                     conduct Mega health camps, eye camps in the campus for the
@@ -143,14 +114,14 @@ export default function AboutUs() {
               </div>
             </div>
           </div>
-          <div  className="carousel-item">
-            <div  className="card-group gap-md-3">
-              <div  className="card card-hover-grey bg-white rounded ">
-                <div  className="card-body">
-                  <h5  className="card-title" style={{ color: "#65a30d" }}>
+          <div className="carousel-item">
+            <div className="card-group gap-md-3">
+              <div className="card card-hover-grey bg-white rounded ">
+                <div className="card-body">
+                  <h5 className="card-title" style={{ color: "#65a30d" }}>
                     Anniversary Celebration
                   </h5>
-                  <p  className="card-text">
+                  <p className="card-text">
                     On the eve of Mother Teresa's birthday, we celebrate our
                     anniversary every year to encourage and inspire our students
                     towards the motto of service, to promote our achievements
@@ -158,24 +129,24 @@ export default function AboutUs() {
                   </p>
                 </div>
               </div>
-              <div  className="card card-hover-grey bg-white rounded border-start">
-                <div  className="card-body">
-                  <h5  className="card-title" style={{ color: "#06b6d4" }}>
+              <div className="card card-hover-grey bg-white rounded border-start">
+                <div className="card-body">
+                  <h5 className="card-title" style={{ color: "#06b6d4" }}>
                     Blood Donation
                   </h5>
-                  <p  className="card-text">
+                  <p className="card-text">
                     We organize blood donation camps inside the campus in
                     collaboration with other community-level
                     organizations/clubs.
                   </p>
                 </div>
               </div>
-              <div  className="card card-hover-grey bg-white rounded border-end">
-                <div  className="card-body">
-                  <h5  className="card-title" style={{ color: "#a21caf" }}>
+              <div className="card card-hover-grey bg-white rounded border-end">
+                <div className="card-body">
+                  <h5 className="card-title" style={{ color: "#a21caf" }}>
                     Recruitment of Volunteers
                   </h5>
-                  <p  className="card-text">
+                  <p className="card-text">
                     To recruit new volunteers to ensure adequate participation
                     by them in achieving the objects of the Society.
                   </p>
@@ -186,7 +157,7 @@ export default function AboutUs() {
         </div>
         <div className="d-flex justify-content-center mt-md-3 gap-md-2">
           <button
-             className="carousel-control-prev btn btn-hover p-2"
+            className="carousel-control-prev btn btn-hover p-2"
             type="button"
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="prev"
@@ -203,7 +174,7 @@ export default function AboutUs() {
             Previous
           </button>
           <button
-             className="carousel-control-next btn btn-hover  p-2"
+            className="carousel-control-next btn btn-hover  p-2"
             type="button"
             data-bs-target="#carouselExampleAutoplaying"
             data-bs-slide="next"
@@ -220,31 +191,32 @@ export default function AboutUs() {
             Next
           </button>
         </div>
-      </div>
-      <div className="departments mt-md-3">
-        <h1
+      </div> </section>
+
+      <section className="departments">
+        <h2
           className="text-center"
           style={{ fontSize: "1.5rem", color: "#7f1d1d" }}
         >
           Departments
-        </h1>
+        </h2>
         <img
           src="/images/department.png"
           alt=""
           height="600px"
           width="800px"
-          style={{ maxWidth: "100%" }}
+          
         />
-      </div>
-      <div className="funding_resources ">
-        <h1
+      </section>
+      <section className="funding_resources ">
+        <h2
           style={{ fontSize: "1.5rem", color: "#7f1d1d" }}
           className="text-center"
         >
           Funding Resources
-        </h1>
+        </h2>
         <div
-          className="main_content row border shadow-bottom  mt-md-3"
+          className="main_content row g-0 border shadow-bottom "
           style={{
             borderTopLeftRadius: "50%",
             borderBottomLeftRadius: "50%",
@@ -256,12 +228,12 @@ export default function AboutUs() {
             alt=""
             height="750px"
             width="750px"
-            className="col-md-6 img-fluid"
+            className="col-md-6 img-fluid p-0"
             style={{
-              transform: "translateX(-12px)",
+              objectFit:"cover"
             }}
           />
-          <div className="col-md-6 align-self-center">
+          <div className="col-md-6 align-self-center p-2">
             {" "}
             <p
               className="charity_para mt-md-4"
@@ -300,14 +272,14 @@ export default function AboutUs() {
             </p>
           </div>
         </div>
-      </div>
-      <div className="organs d-flex flex-column mt-md-5">
-        <h1
+      </section>
+      <section className="organs d-flex flex-column rounded">
+        <h2
           style={{ fontSize: "1.5rem", color: "#7f1d1d" }}
           className="text-center"
         >
           ORGANS OF SOCIETY
-        </h1>
+        </h2>
         <img
           src="/images/org.png"
           alt=""
@@ -315,12 +287,12 @@ export default function AboutUs() {
           width="150px"
           className="d-block mx-auto"
         />
-        <h1
+        <h2
           style={{ fontSize: "1.5rem", color: "#7f1d1d" }}
           className="text-center"
         >
           Executive Committee Responsibilities
-        </h1>
+        </h2>
         <p>
           The Executive authority of the association shall be vested in the
           Executive Committee(EC). The EC members are responsible for overseeing
@@ -361,8 +333,8 @@ export default function AboutUs() {
           the Society, by the Executive Committee.
           <br />
         </div>
-      </div>
-      <div className="selection d-flex flex-column mt-md-4">
+      </section>
+      <section className="selection d-flex flex-column  rounded">
         <img
           src="/images/volunteer.png"
           alt=""
@@ -370,13 +342,18 @@ export default function AboutUs() {
           width="100"
           className="d-block mx-auto"
         />
-        <h1 style={{ fontSize: "1.5rem", color: "#7f1d1d" }} className="text-center">Volunteers</h1>
-        <h1
+        <h2
+          style={{ fontSize: "1.5rem", color: "#7f1d1d" }}
+          className="text-center"
+        >
+          Volunteers
+        </h2>
+        <h2
           style={{ fontSize: "1.5rem", color: "#7f1d1d" }}
           className="mt-md-1 text-center"
         >
           RGUKT Nuzvid Organization
-        </h1>
+        </h2>
         <p className="">
           All the 7000+ students and faculty of RGUKT-Nuzvid makes our
           organisation full-fledged. Every volunteer of our organization plays
@@ -387,18 +364,33 @@ export default function AboutUs() {
           staff and outside charity.
         </p>
         <div className="d-flex  rounded p-3 volunteer_innerdiv justify-content-around align-items-stretch gap-4">
-          <div className="border rounded p-4  justify-self-center d-flex flex-column justify-content-center align-items-center" style={{ backgroundColor: "#D1D5DB",margin:"0" }}>
-            <h5 style={{fontWeight:"600",fontSize:"1.125rem"}}>Executive Committe</h5>
+          <div
+            className="border rounded p-4  justify-self-center d-flex flex-column justify-content-center align-items-center"
+            style={{ backgroundColor: "#D1D5DB", margin: "0" }}
+          >
+            <h5 style={{ fontWeight: "600", fontSize: "1.125rem" }}>
+              Executive Committe
+            </h5>
             <span>(Includes students and faculty)</span>
           </div>
-          <div className="border rounded p-4  d-flex justify-content-center align-items-center" style={{ backgroundColor: "#FECACA",margin:"0"}}>
-            <h2 style={{fontWeight:"600",fontSize:"1.125rem"}}>Branch/Floor Level Representatives</h2>
+          <div
+            className="border rounded p-4  d-flex justify-content-center align-items-center"
+            style={{ backgroundColor: "#FECACA", margin: "0" }}
+          >
+            <h2 style={{ fontWeight: "600", fontSize: "1.125rem" }}>
+              Branch/Floor Level Representatives
+            </h2>
           </div>
-          <div className="border rounded p-4  d-flex justify-content-center align-items-center" style={{ backgroundColor: "#C084FC",margin:"0" }}>
-            <h2 style={{fontWeight:"600",fontSize:"1.125rem"}}>Class Level Representatives(HR)</h2>
+          <div
+            className="border rounded p-4  d-flex justify-content-center align-items-center"
+            style={{ backgroundColor: "#C084FC", margin: "0" }}
+          >
+            <h2 style={{ fontWeight: "600", fontSize: "1.125rem" }}>
+              Class Level Representatives(HR)
+            </h2>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
