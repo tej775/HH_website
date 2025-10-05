@@ -55,7 +55,7 @@ const recoginitions = [
         file_link:""
     },
     {
-        image:"../images/fund_raising.png",
+        image:"../images/rescue.png",
         content:"Kerala Floods Acknowledgment",
         file_link:""
     },
@@ -143,7 +143,7 @@ const recoginitions = [
     </div>
   
     <section className="section p-md-3" id="welcome-section">
-        <div className="d-flex align-items-center gap-1" style={{color:"#7f1d1d"}}><img src="../images/hhlogo.png" alt="" height="50px" width="50px"/>
+        <div className="d-flex align-items-center gap-1 heading" style={{color:"#7f1d1d"}}><img src="../images/hhlogo.png" alt="" height="50px" width="50px"/>
         <h3>Welcome to Helping Hands</h3></div>
         
         <div className="content">
@@ -153,13 +153,13 @@ const recoginitions = [
 
         </div>
     </section>
-    <section className="workflow pd-md-4">
+    <section className="workflow p-md-4">
         <h3 className="text-center" style={{color:"#7f1d1d"}}>Our Workflow</h3>
         <div class="card-group">
             {
                 workflow.map((item)=>{
                     return(
-                        <div class="card justify-content-center align-items-center">
+                        <div class="card justify-content-center align-items-center py-4 border rounded">
     <img src={`${item.image}`} class="card-img-top" alt="..."/>
     <div class="card-body">
       <h5 class="card-title">{item.content}</h5>
@@ -179,7 +179,7 @@ const recoginitions = [
                 recoginitions.map((item)=>{
                     return(
                         <a href="/files/lockdown.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none shadow1">
-                        <div class="card justify-content-center align-items-center">
+                        <div class="card justify-content-center align-items-center py-4 h-100">
     <img src={`${item.image}`} class="card-img-top" alt="..."/>
     <div class="card-body">
       <h5 class="card-title">{item.content}</h5>
@@ -205,7 +205,7 @@ const recoginitions = [
     <p class="card-text">{item.content}
     </p>
  
-    <p class="card-text"><small class="text-body-secondary">{item.by}</small></p>
+    <p class="card-text"><small  style={{color:"#7f1d1d"}}>{item.by}</small></p>
 </div> </div>
     </div> 
         )
@@ -213,7 +213,7 @@ const recoginitions = [
  
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" >
-    <span class="carousel-control-prev-icon" aria-hidden="true" style={{color:"#7f1d1d"}}>&#8592;</span>
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
@@ -222,16 +222,17 @@ const recoginitions = [
   </button>
 </div></section>
 <section className="donate">
-    <p className="fw-bold text-center" style={{fontSize:"25px"}}><quote>A helping hand costs nothing,but it make a priceless impact on the world</quote></p>
+    <p className="fw-bold text-center" style={{fontSize:"25px"}}><quote>" A helping hand costs nothing,but it make a priceless impact on the world. "</quote></p>
     <button type="button" className="btn" style={{ padding: "10px 30px",
   borderRadius:"50px",
   border: "none",             
   backgroundColor:"#7f1d1d",
   margin:"0 auto",
-  textAlign:"center",
+  display:"block",
   color:"white",
-  fontSize:"16px",
+  fontSize:"20px",
   cursor:"pointer",
+  fontWeight:"600px !important",
   transition:"background-color 0.3s",}}>Donate Us</button></section></div>
     
   );
