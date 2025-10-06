@@ -1,82 +1,72 @@
-
-/* Container for carousel and header space */
+/* ---------------- DESKTOP DEFAULT (unchanged) ---------------- */
 .carousel-container {
   width: 100%;
   display: flex;
-  flex-direction: column; /* allow header above carousel */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px 30px 30px 30px; /* top padding increased for header space */
-  
-  
+  padding: 50px 30px 30px 30px;
 }
 
-/* Carousel wrapper */
 .carousel {
   position: relative;
-  width: 800px; /* increased width */
-  height: 500px; /* increased height */
+  width: 800px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Images */
 .carousel-img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1); /* increased scale */
-  width: 500px; /* increased width */
-  height: 300px; /* increased height */
+  transform: translate(-50%, -50%) scale(1);
+  width: 500px;
+  height: 300px;
   border-radius: 12px;
   object-fit: cover;
   opacity: 0.6;
   transition: all 0.6s ease;
 }
 
-/* Previous image */
 .carousel-img.left {
-  transform: translate(-800px, -50%) scale(1); /* adjusted spacing */
+  transform: translate(-800px, -50%) scale(1);
   opacity: 0.7;
   z-index: 1;
 }
 
-/* Center image */
 .carousel-img.active {
-  transform: translate(-50%, -50%) scale(1.4); /* larger active image */
+  transform: translate(-50%, -50%) scale(1.4);
   opacity: 1;
   z-index: 2;
 }
 
-/* Next image */
 .carousel-img.right {
-  transform: translate(320px, -50%) scale(1); /* adjusted spacing */
+  transform: translate(320px, -50%) scale(1);
   opacity: 0.7;
   z-index: 1;
 }
 
-/* Hide others */
 .carousel-img.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Optional: header above carousel */
 .carousel-header {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 20px; /* space between header and carousel */
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.heading{
+.heading {
   text-align: center;
   font-weight: bolder;
   font-size: xx-large;
-
 }
-.about{
+
+.about {
   font-size: x-large;
   text-indent: 100px;
 }
@@ -85,30 +75,144 @@ body, html {
   overflow-x: hidden;
 }
 
-.quote{
+.quote {
   text-align: center;
   font-size: x-large;
+  margin: 30px 10px;
 }
 
-.btnDonate{
+.btnDonate {
   text-align: center;
   background-color: red;
-  width:200px;
+  width: 200px;
   border-radius: 50px;
   font-size: x-large;
   color: white;
- height:60px;
+  height: 60px;
 }
 
-.btn-container{
-  display:flex;
+.btn-container {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-button{
-  background-color:black;
+button {
+  background-color: black;
   text-align: center;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
 
+/* ---------------- TABLET VIEW ---------------- */
+@media (max-width: 992px) {
+  .carousel {
+    width: 90%;
+    height: 400px;
+  }
+
+  .carousel-img {
+    width: 400px;
+    height: 250px;
+  }
+
+  .carousel-img.active {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  .about {
+    font-size: large;
+    text-indent: 50px;
+    padding: 0 20px;
+  }
+
+  .heading {
+    font-size: x-large;
+  }
+
+  .quote {
+    font-size: large;
+  }
+}
+
+/* ---------------- MOBILE VIEW ---------------- */
+@media (max-width: 576px) {
+  .carousel {
+    width: 100%;
+    height: 280px;
+  }
+
+  .carousel-img {
+    width: 90%;
+    height: 180px;
+  }
+
+  .carousel-img.active {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+
+  .heading {
+    font-size: large;
+    margin: 20px 10px;
+  }
+
+  .about {
+    font-size: medium;
+    text-indent: 20px;
+    padding: 0 15px;
+    text-align: justify;
+  }
+
+  .quote {
+    font-size: medium;
+    padding: 10px;
+  }
+
+  .btnDonate {
+    width: 160px;
+    height: 50px;
+    font-size: large;
+  }
+
+  .card img {
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card .card-body {
+    font-size: 14px;
+  }
+}
+
+/* ---------------- VERY SMALL PHONES ---------------- */
+@media (max-width: 400px) {
+  .carousel {
+    height: 220px;
+  }
+
+  .carousel-img {
+    width: 90%;
+    height: 150px;
+  }
+
+  .heading {
+    font-size: medium;
+  }
+
+  .about {
+    font-size: small;
+    text-indent: 10px;
+    padding: 0 10px;
+  }
+
+  .btnDonate {
+    width: 140px;
+    height: 45px;
+    font-size: medium;
+  }
+
+  .quote {
+    font-size: small;
+  }
 }
