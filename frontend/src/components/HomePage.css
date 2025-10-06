@@ -1,8 +1,12 @@
+html,body{
+    scroll-behavior: auto !important;
+}
 body {
  
    line-height: 1.6;
   background: #f8f9fa;
   margin: 0;
+
 }
 section {
   margin-top: 3rem;
@@ -22,6 +26,10 @@ section h3 {
   align-items: center;
   flex-direction: column;
  
+}
+.carousel1{
+    height: 100vh;
+     overflow: hidden;
 }
 
 #carousel-container {
@@ -290,16 +298,56 @@ ease-in-out !important;}
 /* ===== Responsive Fixes ===== */
 @media (max-width: 992px) {
   .testimonials .carousel-control-prev {
-    left: -50px;
+    left: 50px !important;
   }
   .testimonials .carousel-control-next {
-    right: -50px;
+    right: 50px !important;
   }
 }
 
 @media (max-width: 768px) {
  
-  .testimonials {
+ 
+  .donate{
+    width: 100%;
+   
+  }
+ 
+}
+
+@media (max-width:480px) {
+
+     #carousel-container {
+    height: auto;      /* height adapts to image */
+    padding-top: 60px; /* reduce top space */
+    height: 40vh; 
+  }
+
+  /* Hide side images */
+  .left-image,
+  .right-image {
+    display: none;
+  }
+
+  /* Center image takes full width */
+  .center-image {
+    position: relative;
+    width: 100%;
+    height: auto;      /* maintain aspect ratio */
+    left: 0;
+    transform: none;
+    z-index: 3;
+   
+  }
+
+  /* Ensure image scales properly */
+  .center-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: contain;
+  }
+   .testimonials {
     flex-direction: column;
     padding: 40px 10px;
   }
@@ -334,44 +382,6 @@ ease-in-out !important;}
   .testimonials .carousel-control-next {
     right: 20% !important;
   }
-  .donate{
-    width: 100%;
-   
-  }
- 
-}
-
-@media (max-width:480px) {
-     #carousel-container {
-    height: auto;      /* height adapts to image */
-    padding-top: 60px; /* reduce top space */
-    height: 40vh; 
-  }
-
-  /* Hide side images */
-  .left-image,
-  .right-image {
-    display: none;
-  }
-
-  /* Center image takes full width */
-  .center-image {
-    position: relative;
-    width: 100%;
-    height: auto;      /* maintain aspect ratio */
-    left: 0;
-    transform: none;
-    z-index: 3;
-   
-  }
-
-  /* Ensure image scales properly */
-  .center-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: contain;
-  }
 
      .donate p{
      font-size:20px !important;
@@ -405,6 +415,8 @@ ease-in-out !important;}
    
   }
 }
+
+
 
 
 
