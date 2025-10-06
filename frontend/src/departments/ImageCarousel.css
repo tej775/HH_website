@@ -1,0 +1,114 @@
+
+/* Container for carousel and header space */
+.carousel-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* allow header above carousel */
+  justify-content: center;
+  align-items: center;
+  padding: 50px 30px 30px 30px; /* top padding increased for header space */
+  
+  
+}
+
+/* Carousel wrapper */
+.carousel {
+  position: relative;
+  width: 800px; /* increased width */
+  height: 500px; /* increased height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Images */
+.carousel-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1); /* increased scale */
+  width: 500px; /* increased width */
+  height: 300px; /* increased height */
+  border-radius: 12px;
+  object-fit: cover;
+  opacity: 0.6;
+  transition: all 0.6s ease;
+}
+
+/* Previous image */
+.carousel-img.left {
+  transform: translate(-800px, -50%) scale(1); /* adjusted spacing */
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Center image */
+.carousel-img.active {
+  transform: translate(-50%, -50%) scale(1.4); /* larger active image */
+  opacity: 1;
+  z-index: 2;
+}
+
+/* Next image */
+.carousel-img.right {
+  transform: translate(320px, -50%) scale(1); /* adjusted spacing */
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* Hide others */
+.carousel-img.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Optional: header above carousel */
+.carousel-header {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px; /* space between header and carousel */
+  text-align: center;
+}
+
+.heading{
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+
+}
+.about{
+  font-size: x-large;
+  text-indent: 100px;
+}
+
+body, html {
+  overflow-x: hidden;
+}
+
+.quote{
+  text-align: center;
+  font-size: x-large;
+}
+
+.btnDonate{
+  text-align: center;
+  background-color: red;
+  width:200px;
+  border-radius: 50px;
+  font-size: x-large;
+  color: white;
+ height:60px;
+}
+
+.btn-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+button{
+  background-color:black;
+  text-align: center;
+
+}
