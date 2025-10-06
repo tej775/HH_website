@@ -8,11 +8,21 @@ import InternalCare from './components/departments/InternalCare';
 import OutsideCharity from './components/departments/OutsideCharity';
 import PublicRelations from './components/departments/PublicRelations';
 import Home from './components/Home';
+import Footer from './components/Footer';
+import { BrowserRouter } from "react-router-dom";
+import Navbar from './components/Navbar';
 
 
 function App() {
   return (
-      <Contact></Contact>
+    <BrowserRouter>
+    <Navbar></Navbar>
+    <Home></Home>
+    <Footer></Footer>
+    </BrowserRouter>
+    
+
+
   );
 }
 
