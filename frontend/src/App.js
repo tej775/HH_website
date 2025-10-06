@@ -1,3 +1,4 @@
+import Contact from './components/Contact';
 import './App.css';
 import AboutUs from './components/AboutUs';
 import Certificate from './components/Certificate';
@@ -11,7 +12,7 @@ import Home from './components/Home';
 
 function App() {
   return (
-      <PublicRelations></PublicRelations>
+      <Contact></Contact>
   );
 }
 
