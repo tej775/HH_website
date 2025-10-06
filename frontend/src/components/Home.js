@@ -92,6 +92,11 @@ const recoginitions = [
     const interval = setInterval(nextImage, 2000);
     setAutoScroll(interval);
   };
+  //Snap sh
+  
+
+
+
 
 
 
@@ -103,7 +108,7 @@ const recoginitions = [
 
   return (
     <div id="fullpage" className="px-3 px-md-5">
-         
+     <section className="carousel1"> 
     <div id="carousel-container">
       <div id="carousel">
         <div className="img-wrapper left-image">
@@ -141,7 +146,8 @@ const recoginitions = [
         &#8594;
       </button>
     </div>
-  
+  </section>  
+ <div className="second">
     <section className="section p-md-3" id="welcome-section">
         <div className="d-flex align-items-center gap-1 heading" style={{color:"#7f1d1d"}}><img src="../images/hhlogo.png" alt="" height="50px" width="50px"/>
         <h3>Welcome to Helping Hands</h3></div>
@@ -233,7 +239,9 @@ const recoginitions = [
   fontSize:"20px",
   cursor:"pointer",
   fontWeight:"600px !important",
-  transition:"background-color 0.3s",}}>Donate Us</button></section></div>
+  transition:"background-color 0.3s",}}>Donate Us</button></section>
+  </div></div>
+  
     
   );
 }
