@@ -77,17 +77,17 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/">
+              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/events">
                 Events
               </Link>
             </li>
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/">
+              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/gallery">
                 Gallery
               </Link>
             </li>
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/">
+              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/ourTeam">
                 Our Team
               </Link>
             </li>
@@ -97,7 +97,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item mx-2 my-1">
-              <Link className="btn text-white" style={{ backgroundColor: "#800000" }} to="/">
+              <Link className="btn text-white" style={{ backgroundColor: "#800000" }} to="/donateUs">
                 Donate Us
               </Link>
             </li>
