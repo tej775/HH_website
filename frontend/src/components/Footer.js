@@ -18,7 +18,7 @@ export default function Footer() {
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: "20px" }}>
           {/* Logo + Title + Description */}
           <div style={{ display: "flex", flex: "1 1 300px", marginBottom: "20px" }}>
-            <img src="./images/hhlogo.png" alt="Logo" width={80} height={80} style={{ marginRight: "15px" }} />
+            <img src="./images/hhlogo.png" alt="Logo" width={100} height={80} style={{ marginRight: "15px" }} />
             <div>
               <span style={{ fontWeight: "bold", fontSize: "18px", display: "block" }}>
                 Helping Hands RGUKT Nuzvid

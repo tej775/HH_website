@@ -72,7 +72,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} href="#">
+              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/">
                 Departments
               </Link>
             </li>
@@ -89,6 +89,11 @@ export default function Navbar() {
             <li className="nav-item mx-2 my-1">
               <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/">
                 Our Team
+              </Link>
+            </li>
+            <li className="nav-item mx-2 my-1">
+              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/certificate">
+               Certificate
               </Link>
             </li>
             <li className="nav-item mx-2 my-1">

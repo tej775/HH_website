@@ -38,7 +38,7 @@ export default function Contact() {
               style={{ color: "maroon" }}
             >
               <FaEnvelope style={{ marginRight: "10px" }} size={20} />
-              <span style={{color:'black'}}>helpinghands@rguktn.ac.in</span>
+              <span style={{ color: "black" }}>helpinghands@rguktn.ac.in</span>
             </a>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function Contact() {
         {/* Right side: Image */}
         <div className="col-12 col-md-6 d-flex justify-content-center">
           <img
-            src="./images/image.png"
+            src="./images/contacting.png"
             alt="help"
             className="img-fluid"
             style={{ maxHeight: "200px" }}
