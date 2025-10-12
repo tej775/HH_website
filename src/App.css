@@ -164,6 +164,27 @@ footer.hh-footer {
 .hh-footer .hh-copyright { color: #8B2323; font-size: 0.95rem; margin-top: 1.5rem; }
 
 /* Responsive tweaks */
+@media (max-width: 991px) {
+    .hh-navbar .collapse.navbar-collapse {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    .hh-navbar .navbar-logo {
+        margin-bottom: 1rem;
+    }
+    .hh-navbar .navbar-nav {
+        margin: 1rem 0;
+        text-align: center;
+    }
+    .hh-navbar .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+    }
+    .hh-navbar .donate-btn {
+        margin-top: 1rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hh-header-top {
         padding: 1.5rem 0.5rem 0.5rem 0.5rem;
