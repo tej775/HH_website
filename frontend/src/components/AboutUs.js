@@ -20,7 +20,7 @@ export default function AboutUs() {
   ];
   return (
     <div
-      style={{ paddingTop: "180px" }}
+      
       className="d-flex flex-column justify-content-center align-items-center px-3 px-md-5"
     >
       <h1

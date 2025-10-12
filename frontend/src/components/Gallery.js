@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 // Array of image sources (use public folder for images)
 const IMAGES = [
   '/images/hq720.jpg',
-  '/images/eyecamp.jpg',
+  '/images/charity.jpg',
   '/images/image3.jpg',
   '/images/image4.jpg',
   '/images/image5.jpg',

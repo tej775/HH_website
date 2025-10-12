@@ -1,25 +1,15 @@
 {
-  "name": "frontend",
+  "name": "eventshh",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.8.0",
-    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.3.8",
-    "bootstrap-icons": "^1.13.1",
-    "react": "^19.1.1",
-    "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.1.1",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.9.3",
-<<<<<<< HEAD
-    "react-scripts": "^5.0.1",
-    "scripts": "^0.1.0",
-=======
+    "aos": "^2.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
->>>>>>> 6eb6567be8402dfc0244a462cd0f0705f24205a8
     "web-vitals": "^2.1.4"
   },
   "scripts": {

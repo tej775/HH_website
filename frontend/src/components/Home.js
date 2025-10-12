@@ -93,18 +93,6 @@ const recoginitions = [
     setAutoScroll(interval);
   };
   //Snap sh
-  
-
-
-
-
-
-
-
-  
-
-
- 
 
   return (
     <div id="fullpage" className="px-3 px-md-5">
