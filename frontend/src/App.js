@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
     <Navbar>
         </Navbar>
-          <AboutUs></AboutUs>
+          <Home></Home>
         <Footer></Footer></BrowserRouter>
   
     
