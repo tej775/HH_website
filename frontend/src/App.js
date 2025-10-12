@@ -35,6 +35,7 @@ function App() {
           <Route path="/publicRelations" element={<PublicRelations/>}/>
          
       </Routes>
+      <Home></Home>
 
       {/* Footer will appear on all pages */}
       <Footer />
