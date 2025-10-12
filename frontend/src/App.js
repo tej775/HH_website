@@ -11,15 +11,19 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import { BrowserRouter } from "react-router-dom";
 import Navbar from './components/Navbar';
+import Team from './components/Team';
+import Gallery from './components/Gallery';
 
 
 function App() {
   return (
     <BrowserRouter>
-    <Navbar></Navbar>
-    <Home></Home>
-    <Footer></Footer>
-    </BrowserRouter>
+    <Navbar>
+        </Navbar>
+          <AboutUs></AboutUs>
+        <Footer></Footer></BrowserRouter>
+  
+    
     
 
 
