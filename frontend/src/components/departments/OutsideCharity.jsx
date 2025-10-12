@@ -16,11 +16,11 @@ export default function OutsideCharity() {
   
     
 
-  // Auto-slide every 3s
+  // Auto-slide every 2s
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
