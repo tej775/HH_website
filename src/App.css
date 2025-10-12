@@ -50,6 +50,7 @@ body {
     height: 70px;
     /* margin-right: 1rem; */
     border-radius: 50%;
+    clip-path: circle(50% at center);
 }
 .hh-navbar {
     background-color: #8B2323;
