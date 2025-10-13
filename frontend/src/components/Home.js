@@ -151,9 +151,9 @@ const recoginitions = [
         <h3 className="text-center" style={{color:"#7f1d1d"}}>Our Workflow</h3>
         <div class="card-group">
             {
-                workflow.map((item)=>{
+                workflow.map((item,index)=>{
                     return(
-                        <div class="card justify-content-center align-items-center py-4 border rounded">
+                        <div key={index} class="card justify-content-center align-items-center py-4 border rounded">
     <img src={`${item.image}`} class="card-img-top" alt="..."/>
     <div class="card-body">
       <h5 class="card-title">{item.content}</h5>
@@ -170,9 +170,9 @@ const recoginitions = [
         <h3 className="text-center" style={{color:"#7f1d1d"}}>Recognitions</h3>
          <div class="card-group">
              {
-                recoginitions.map((item)=>{
+                recoginitions.map((item,index)=>{
                     return(
-                        <a href="/files/lockdown.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none shadow1">
+                        <a key={index} href="/files/lockdown.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none shadow1">
                         <div class="card justify-content-center align-items-center py-4 h-100">
     <img src={`${item.image}`} class="card-img-top" alt="..."/>
     <div class="card-body">
@@ -193,7 +193,7 @@ const recoginitions = [
   <div class="carousel-inner">
     { testimonials.map((item,index) => {
         return(
-            <div class={`carousel-item ${index === 0 ? "active" : ""}`} style={{marginRight:"0px"}}>
+            <div key={index} class={`carousel-item ${index === 0 ? "active" : ""}`} style={{marginRight:"0px"}}>
         <div class="card ">
   <div class="card-body">
     <p class="card-text">{item.content}
