@@ -13,7 +13,9 @@ import InnovativeAndInformative from './components/departments/InnovativeAndInfo
 import InternalCare from './components/departments/InternalCare';
 import OutsideCharity from './components/departments/OutsideCharity';
 import PublicRelations from './components/departments/PublicRelations';
-
+import AdminDashboard from './adminPortal/AdminDashboard';
+import AdminLogin from './adminPortal/adminLOgin';
+import ProtectedRoute from './components/ProtectetdRoute';
 function App() {
   return (
     <Router>
@@ -33,7 +35,14 @@ function App() {
           <Route path="/internalCare" element={<InternalCare/>}/>
           <Route path="/outsideCharity" element={<OutsideCharity/>}/>
           <Route path="/publicRelations" element={<PublicRelations/>}/>
-         
+         <Route path="/admin-login" element={<AdminLogin />} />
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>}
+            />
       </Routes>
       
 
