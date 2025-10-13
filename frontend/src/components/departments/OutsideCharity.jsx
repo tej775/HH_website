@@ -64,7 +64,7 @@ export default function OutsideCharity() {
 
   return (
    <div>
-     <div className="carousel-container">
+     <div className=".carousel-containertwo">
       <div className="carousel">
         {images.map((img, i) => {
           let position = "";

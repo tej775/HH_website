@@ -135,7 +135,7 @@ export default function HealthCare() {
   return (
     <div>
       {/* -------- YOUR EXISTING CODE -------- */}
-      <div className="carousel-container">
+      <div className=".carousel-containertwo">
         <div className="carousel">
           {images.map((img, i) => {
             let position = "";
