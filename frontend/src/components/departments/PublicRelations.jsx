@@ -60,7 +60,7 @@ const PublicRelations = () => {
             };
   return (
     <div>
-     <div className=".carousel-containertwo">
+     <div className="carousel-container two">
       <div className="carousel">
         {images.map((img, i) => {
           let position = "";

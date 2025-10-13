@@ -6,10 +6,16 @@ export default function Footer() {
   const [visits, setVisits] = useState(0);
 
   useEffect(() => {
-    const storedVisits = localStorage.getItem("siteVisits");
-    const newCount = storedVisits ? parseInt(storedVisits) + 1 : 1;
-    localStorage.setItem("siteVisits", newCount);
-    setVisits(newCount);
+    if (!sessionStorage.getItem("visitedOnce")) {
+      const storedVisits = localStorage.getItem("siteVisits");
+      const newCount = storedVisits ? parseInt(storedVisits) + 1 : 1;
+      localStorage.setItem("siteVisits", newCount);
+      setVisits(newCount);
+      sessionStorage.setItem("visitedOnce", "true");
+    } else {
+      const storedVisits = localStorage.getItem("siteVisits");
+      setVisits(storedVisits ? parseInt(storedVisits) : 1);
+    }
   }, []);
 
   return (
