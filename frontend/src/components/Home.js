@@ -1,10 +1,15 @@
 import React, { useState, useEffect,useRef } from "react";
 import "./HomePage.css"; // Move CSS there if you want
 
-const images = [
-  "../images/carousal_image2.jpg",
-  "../images/carousal_image_1.jpeg",
-  "../images/carousal_image2.jpg"
+const images = [{
+    image:"../images/carousal_image2.jpg",
+    caption:"Inauguration of Mega Eye Camp with Ashwani Foundation"},
+    {image:"../images/carousal_image_1.jpeg",
+     caption:"Cloth Donation Camp in Yanadi Colony",
+    },
+    {image:"../images/carousal_image2.jpg",
+        caption:"Inauguration of Mega Eye Camp with Ashwani Foundation"
+    } 
 ];
 
 export default function Home() {
@@ -100,16 +105,16 @@ const recoginitions = [
     <div id="carousel-container">
       <div id="carousel">
         <div className="img-wrapper left-image">
-          <img src={images[leftIndex]} alt="left" />
-          <div className="caption">Left Image</div>
+          <img src={images[leftIndex].image} alt="left" />
+          <div className="caption">{images[leftIndex].caption}</div>
         </div>
         <div className="img-wrapper center-image">
-          <img src={images[centerIndex]} alt="center" />
-          <div className="caption">Center image</div>
+          <img src={images[centerIndex].image} alt="center" />
+          <div className="caption">{images[centerIndex].caption}</div>
         </div>
         <div className="img-wrapper right-image">
-          <img src={images[rightIndex]} alt="right" />
-          <div className="caption">Right Image</div>
+          <img src={images[rightIndex].image} alt="right" />
+          <div className="caption">{images[rightIndex].caption}</div>
         </div>
        
       </div>
