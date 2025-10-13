@@ -17,7 +17,7 @@ const InnovativeAndInfomative = () => {
           useEffect(() => {
             const interval = setInterval(() => {
               setIndex((prev) => (prev + 1) % images.length);
-            }, 3000);
+            }, 2000);
             return () => clearInterval(interval);
           }, []);
 
@@ -60,7 +60,7 @@ const InnovativeAndInfomative = () => {
             };
   return (
     <div>
-     <div className="carousel-container">
+     <div className=".carousel-containertwo">
       <div className="carousel">
         {images.map((img, i) => {
           let position = "";

@@ -1,5 +1,5 @@
 /* ---------------- DESKTOP DEFAULT (unchanged) ---------------- */
-.carousel-container {
+.carousel-containertwo{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   padding: 50px 30px 30px 30px;
 }
 
-.carousel {
+.carousel-containertwo .carousel {
   position: relative;
   width: 800px;
   height: 500px;

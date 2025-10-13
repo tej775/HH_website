@@ -86,7 +86,7 @@ export default function HealthCare() {
   const [index, setIndex] = useState(0);
   const [modalData, setModalData] = useState({});
 
-  // Auto-slide every 3s
+  // Auto-slide every 2s
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
@@ -135,7 +135,7 @@ export default function HealthCare() {
   return (
     <div>
       {/* -------- YOUR EXISTING CODE -------- */}
-      <div className="carousel-container">
+      <div className=".carousel-containertwo">
         <div className="carousel">
           {images.map((img, i) => {
             let position = "";
