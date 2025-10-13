@@ -2,9 +2,15 @@ import React from 'react'
 import {useState,useEffect} from 'react'
 import "./ImageCarousel.css";
 
-import img1 from "../assets/image.jpg";
-import img2 from "../assets/image.jpg";
-import img3 from "../assets/image.jpg";
+import img1 from "../../assets/publicrelations1.jpeg";
+import img2 from "../../assets/publicrelations2.jpeg";
+import img3 from "../../assets/publicrelations3.jpeg";
+
+import img4 from "../../assets/publicrelations_con1.jpeg";
+import img5 from "../../assets/publicrelations_con2.jpeg";
+import img6 from "../../assets/publicrelations_con3.jpeg";
+import img7 from "../../assets/publicrelations_con4.jpeg";
+// import img8 from "../../assets/publicrelations_con5.jpeg"
 
 const images = [img1, img2, img3];
 
@@ -27,7 +33,7 @@ const PublicRelations = () => {
               {
                 id: 1,
                 title: "2013 Mega Blood Donation",
-                image: img1,
+                image: img4,
                 shortDesc:
                   "Helping Hands conduct blood donation camp which involves organized blood drives...",
                 fullDesc:
@@ -36,7 +42,7 @@ const PublicRelations = () => {
               {
                 id: 2,
                 title: "Health Awareness Camp",
-                image: img2,
+                image: img5,
                 shortDesc: "Organized to promote regular health checkups and fitness awareness...",
                 fullDesc:
                   "This camp was aimed at promoting the importance of regular medical checkups and a healthy lifestyle. Doctors from reputed hospitals visited the campus and conducted free consultations and health screenings.",
@@ -44,10 +50,26 @@ const PublicRelations = () => {
               {
                 id: 3,
                 title: "Medical Aid Program",
-                image: img3,
+                image: img6,
                 shortDesc: "Financial and emotional support to students and staff in need...",
                 fullDesc:
                   "The Medical Aid Program offers financial support to those who face medical emergencies. It ensures that every student and staff member receives timely medical assistance without any financial burden.",
+              },
+              {
+                id: 4,
+                title: "Convocation-2015",
+                image: img7,
+                shortDesc: "During Convocation 2015, we established a dedicated Helping Hands booth. Here, t...",
+                fullDesc:
+                  "During Convocation 2015, we established a dedicated Helping Hands booth. Here, the organisation actively showcased and communicated the various service activities and accomplishments we had undertaken to contribute to our community and beyond.",
+              },
+               {
+                id: 5,
+                title: "Munuguru Cloth Donation",
+                image: img7,
+                shortDesc: "Munuguru Cloth Donation We Successfully organised cloth donation campaign in fe...",
+                fullDesc:
+                  "Munuguru Cloth Donation We Successfully organised cloth donation campaign in few areas near Munuguru,Khammam District on 28-07-19. we have collected wearable clothes from the students and faculty, distributed more than 1000 pairs of clothes to the needy people.",
               },
             ];
           

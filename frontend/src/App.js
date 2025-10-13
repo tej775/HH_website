@@ -19,8 +19,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 function AppWrapper() {
   const location = useLocation();
-  const hideHeaderFooter = location.pathname === '/admin-login';
-
+  const hideHeaderFooter = location.pathname === '/admin-login' ;
+ const hideFooter=location.pathname === '/admin-dashboard';
   return (
     <>
       {!hideHeaderFooter && <Navbar />}
@@ -48,7 +48,9 @@ function AppWrapper() {
         />
       </Routes>
 
-      {!hideHeaderFooter && <Footer />}
+      {!hideHeaderFooter &&  !hideFooter && <Footer/>
+      }
+      
     </>
   );
 }

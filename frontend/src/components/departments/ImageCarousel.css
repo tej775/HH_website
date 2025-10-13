@@ -174,12 +174,12 @@ button {
     height: 50px;
     font-size: large;
   }
-/* 
-  .card img {
+
+  /* .card img {
     height: 180px;
     object-fit: cover;
-  } */
-
+  }  */
+    
   .card .card-body {
     font-size: 14px;
   }
