@@ -32,7 +32,7 @@ export default function AboutUs() {
       <section className="about_2">
        { about_2.map((item,index) => {
             return(
-               <div className="d-flex position-relative">
+               <div key={index} className="d-flex position-relative">
           <img
             src={item.image}
             alt=""

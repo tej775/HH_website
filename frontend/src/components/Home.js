@@ -1,10 +1,15 @@
 import React, { useState, useEffect,useRef } from "react";
 import "./HomePage.css"; // Move CSS there if you want
 
-const images = [
-  "../images/carousal_image2.jpg",
-  "../images/carousal_image_1.jpeg",
-  "../images/carousal_image2.jpg"
+const images = [{
+    image:"../images/carousal_image2.jpg",
+    caption:"Inauguration of Mega Eye Camp with Ashwani Foundation"},
+    {image:"../images/carousal_image_1.jpeg",
+     caption:"Cloth Donation Camp in Yanadi Colony",
+    },
+    {image:"../images/carousal_image2.jpg",
+        caption:"Inauguration of Mega Eye Camp with Ashwani Foundation"
+    } 
 ];
 
 export default function Home() {
@@ -100,16 +105,16 @@ const recoginitions = [
     <div id="carousel-container">
       <div id="carousel">
         <div className="img-wrapper left-image">
-          <img src={images[leftIndex]} alt="left" />
-          <div className="caption">Left Image</div>
+          <img src={images[leftIndex].image} alt="left" />
+          <div className="caption">{images[leftIndex].caption}</div>
         </div>
         <div className="img-wrapper center-image">
-          <img src={images[centerIndex]} alt="center" />
-          <div className="caption">Center image</div>
+          <img src={images[centerIndex].image} alt="center" />
+          <div className="caption">{images[centerIndex].caption}</div>
         </div>
         <div className="img-wrapper right-image">
-          <img src={images[rightIndex]} alt="right" />
-          <div className="caption">Right Image</div>
+          <img src={images[rightIndex].image} alt="right" />
+          <div className="caption">{images[rightIndex].caption}</div>
         </div>
        
       </div>
@@ -151,9 +156,9 @@ const recoginitions = [
         <h3 className="text-center" style={{color:"#7f1d1d"}}>Our Workflow</h3>
         <div class="card-group">
             {
-                workflow.map((item)=>{
+                workflow.map((item,index)=>{
                     return(
-                        <div class="card justify-content-center align-items-center py-4 border rounded">
+                        <div key={index} class="card justify-content-center align-items-center py-4 border rounded">
     <img src={`${item.image}`} class="card-img-top" alt="..."/>
     <div class="card-body">
       <h5 class="card-title">{item.content}</h5>
@@ -170,9 +175,9 @@ const recoginitions = [
         <h3 className="text-center" style={{color:"#7f1d1d"}}>Recognitions</h3>
          <div class="card-group">
              {
-                recoginitions.map((item)=>{
+                recoginitions.map((item,index)=>{
                     return(
-                        <a href="/files/lockdown.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none shadow1">
+                        <a key={index} href="/files/lockdown.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none shadow1">
                         <div class="card justify-content-center align-items-center py-4 h-100">
     <img src={`${item.image}`} class="card-img-top" alt="..."/>
     <div class="card-body">
@@ -193,7 +198,7 @@ const recoginitions = [
   <div class="carousel-inner">
     { testimonials.map((item,index) => {
         return(
-            <div class={`carousel-item ${index === 0 ? "active" : ""}`} style={{marginRight:"0px"}}>
+            <div key={index} class={`carousel-item ${index === 0 ? "active" : ""}`} style={{marginRight:"0px"}}>
         <div class="card ">
   <div class="card-body">
     <p class="card-text">{item.content}

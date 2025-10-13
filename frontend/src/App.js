@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -16,6 +15,8 @@ import PublicRelations from './components/departments/PublicRelations';
 import AdminDashboard from './adminPortal/AdminDashboard';
 import AdminLogin from './adminPortal/adminLOgin';
 import ProtectedRoute from './components/ProtectedRoute';
+import Events from './components/Events';
+import Donation from './components/Donation';
 
 function AppWrapper() {
   const location = useLocation();
@@ -32,6 +33,8 @@ function AppWrapper() {
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/ourTeam" element={<Team />} />
+        <Route path="/events" element={<Events/>}/>
+        <Route path="/donateUs" element={<Donation/>}/>
         <Route path="/healthCare" element={<HealthCare />} />
         <Route path="/innovativeAndInformative" element={<InnovativeAndInformative />} />
         <Route path="/internalCare" element={<InternalCare />} />
