@@ -241,10 +241,10 @@ ease-in-out !important;}
   opacity: 1; /* keep visible */
 }
 .testimonials .carousel-control-prev{
-       left: 100px !important;
+       left: 20% !important;
 }
 .testimonials .carousel-control-next{
-    right: 100px !important;
+    right: 20% !important;
 }
 
 

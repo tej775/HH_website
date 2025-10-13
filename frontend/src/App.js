@@ -36,6 +36,7 @@ function App() {
          
       </Routes>
       
+
       {/* Footer will appear on all pages */}
       <Footer />
     </Router>
