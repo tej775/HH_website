@@ -101,7 +101,7 @@ function Events(){
           <div className="row g-4 justify-content-center">
             {events.map((event, index) => (
               <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-10" data-aos="fade-up" data-aos-delay={index * 100}>
-                <div className="card shadow-sm h-100 event-card">
+                <div className="card shadow-sm h-100 event-card events">
                   <img src={event.img} className="card-img-top" alt={event.title} />
                   <div className="card-body d-flex flex-column pt-4">
                     <div className="event-date"><span>{event.date.day}</span>{event.date.month}</div>
@@ -117,7 +117,7 @@ function Events(){
           <div className="row g-4 justify-content-center">
             {archiveEvents.map((event, index) => (
               <div key={`archive-${index}`} className="col-xl-3 col-lg-4 col-md-6 col-sm-10" data-aos="fade-up" data-aos-delay={index * 100}>
-                <div className="card shadow-sm h-100 event-card">
+                <div className="card shadow-sm h-100 event-card events">
                   <img src={event.img} className="card-img-top" alt={event.title} />
                   <div className="card-body d-flex flex-column pt-4">
                     <div className="event-date"><span>{event.date.day}</span>{event.date.month}</div>

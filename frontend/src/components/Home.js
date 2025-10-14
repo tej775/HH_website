@@ -154,14 +154,14 @@ const recoginitions = [
     </section>
     <section className="workflow p-md-4">
         <h3 className="text-center" style={{color:"#7f1d1d"}}>Our Workflow</h3>
-        <div class="card-group">
+        <div className="card-group">
             {
                 workflow.map((item,index)=>{
                     return(
-                        <div key={index} class="card justify-content-center align-items-center py-4 border rounded">
-    <img src={`${item.image}`} class="card-img-top" alt="..."/>
-    <div class="card-body">
-      <h5 class="card-title">{item.content}</h5>
+                        <div key={index} className="card justify-content-center align-items-center py-4 border rounded">
+    <img src={`${item.image}`} className="card-img-top" alt="..."/>
+    <div className="card-body">
+      <h5 className="card-title" style={{textAlign:"center"}}>{item.content}</h5>
      
     </div>
   </div>
@@ -173,15 +173,15 @@ const recoginitions = [
         </section>
      <section className="recognitions">
         <h3 className="text-center" style={{color:"#7f1d1d"}}>Recognitions</h3>
-         <div class="card-group">
+         <div className="card-group">
              {
                 recoginitions.map((item,index)=>{
                     return(
                         <a key={index} href="/files/lockdown.pdf" target="_blank" rel="noopener noreferrer" className="text-decoration-none shadow1">
-                        <div class="card justify-content-center align-items-center py-4 h-100">
-    <img src={`${item.image}`} class="card-img-top" alt="..."/>
-    <div class="card-body">
-      <h5 class="card-title">{item.content}</h5>
+                        <div className="card justify-content-center align-items-center py-4 h-100">
+    <img src={`${item.image}`} className="card-img-top" alt="..."/>
+    <div className="card-body">
+      <h5 className="card-title" style={{textAlign:"center"}}>{item.content}</h5>
      
     </div>
   </div></a>
@@ -194,30 +194,30 @@ const recoginitions = [
     <section className="testimonials">
           <h3 className="text-center" style={{color:"#7f1d1d"}}>Testimonials</h3>
 
-        <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
+        <div id="carouselExample" className="carousel slide">
+  <div className="carousel-inner">
     { testimonials.map((item,index) => {
         return(
-            <div key={index} class={`carousel-item ${index === 0 ? "active" : ""}`} style={{marginRight:"0px"}}>
-        <div class="card ">
-  <div class="card-body">
-    <p class="card-text">{item.content}
+            <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`} style={{marginRight:"0px"}}>
+        <div className="card ">
+  <div className="card-body">
+    <p className="card-text">{item.content}
     </p>
  
-    <p class="card-text"><small  style={{color:"#7f1d1d"}}>{item.by}</small></p>
+    <p className="card-text"><small  style={{color:"#7f1d1d"}}>{item.by}</small></p>
 </div> </div>
     </div> 
         )
      })}
  
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" >
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
   </button>
 </div></section>
 <section className="donate">
