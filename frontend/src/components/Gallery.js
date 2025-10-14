@@ -48,6 +48,11 @@ const DEPARTMENT_IMAGES = {
     { id: 30, url: 'images/p11.jpg', alt: 'Community workshop', year: 2024 },
     { id: 36, url: 'images/p12.jpg', alt: 'Community workshop', year: 2024 },
     { id: 37, url: 'images/p13.jpg', alt: 'Community workshop', year: 2024 },
+     { id: 28, url: 'images/p14.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 29, url: 'images/p15.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 30, url: 'images/p16.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 36, url: 'images/p17.jpg', alt: 'Community workshop', year: 2024 },
+   
   ],
   'OUTSIDE CHARITY': [
     { id: 45, url: 'images/o1.jpg', alt: 'Group photo after event', year: 2022 },
@@ -57,6 +62,12 @@ const DEPARTMENT_IMAGES = {
     { id: 49, url: 'images/o5.jpg', alt: 'Community workshop', year: 2024 },
     { id: 50, url: 'images/o6.jpg', alt: 'Community workshop', year: 2024 },
     { id: 40, url: 'images/o7.jpg', alt: 'Community workshop', year: 2024 },
+     { id: 28, url: 'images/o8.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 29, url: 'images/o9.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 30, url: 'images/o10.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 36, url: 'images/o11.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 37, url: 'images/o12.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 37, url: 'images/o13.jpg', alt: 'Community workshop', year: 2024 },
   ],
 };
 
@@ -234,4 +245,5 @@ const Gallery = () => {
 
 
 export default Gallery;
+
 
