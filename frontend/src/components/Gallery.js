@@ -25,6 +25,14 @@ const DEPARTMENT_IMAGES = {
     { id: 15, url: 'images/h10.jpg', alt: 'Community workshop', year: 2024 },
     { id: 16, url: 'images/h11.jpg', alt: 'Community workshop', year: 2024 },
     { id: 17, url: 'images/h12.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 10, url: 'images/h13.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 11, url: 'images/h14.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 12, url: 'images/h15.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 13, url: 'images/h16.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 14, url: 'images/h17.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 15, url: 'images/h18.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 16, url: 'images/h19.jpg', alt: 'Community workshop', year: 2024 },
+    
   ],
   'PUBLIC RELATIONS': [
     { id: 18, url: 'images/p1.jpg', alt: 'Volunteers handing out supplies', year: 2023 },
@@ -226,3 +234,4 @@ const Gallery = () => {
 
 
 export default Gallery;
+
