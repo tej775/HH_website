@@ -17,42 +17,59 @@ import AdminLogin from './adminPortal/adminLOgin';
 import ProtectedRoute from './components/ProtectedRoute';
 import Events from './components/Events';
 import Donation from './components/Donation';
+import ImageUpload from "./components/ImageUpload";
 
 function AppWrapper() {
   const location = useLocation();
-  const hideHeaderFooter = location.pathname === '/admin-login' ;
- const hideFooter=location.pathname === '/admin-dashboard';
+const isAdminPage = location.pathname.startsWith("/admin");
+const isLogin = location.pathname==='/admin/login'
   return (
     <>
-      {!hideHeaderFooter && <Navbar />}
+
+      
+  {!isLogin && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/certificate" element={<Certificate />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/ourTeam" element={<Team />} />
-        <Route path="/events" element={<Events/>}/>
-        <Route path="/donateUs" element={<Donation/>}/>
-        <Route path="/healthCare" element={<HealthCare />} />
-        <Route path="/innovativeAndInformative" element={<InnovativeAndInformative />} />
-        <Route path="/internalCare" element={<InternalCare />} />
-        <Route path="/outsideCharity" element={<OutsideCharity />} />
-        <Route path="/publicRelations" element={<PublicRelations />} />
-        <Route path="/admin-login" element={<AdminLogin />} />
-        <Route
-          path="/admin-dashboard"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
+      
+  {/* Public pages */}
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<AboutUs />} />
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/certificate" element={<Certificate />} />
+  <Route path="/gallery" element={<Gallery />} />
+  <Route path="/ourTeam" element={<Team />} />
+  <Route path="/events" element={<Events />} />
+  <Route path="/donateUs" element={<Donation />} />
+  <Route path="/healthCare" element={<HealthCare />} />
+  <Route path="/innovativeAndInformative" element={<InnovativeAndInformative />} />
+  <Route path="/internalCare" element={<InternalCare />} />
+  <Route path="/outsideCharity" element={<OutsideCharity />} />
+  <Route path="/publicRelations" element={<PublicRelations />} />
+  <Route path="/admin/add-member" element={<ImageUpload/>}/>
+  <Route path='/admin/ourTeam' element={<Team/>}/>
+  {/* Admin routes */}
+  <Route path="/admin/login" element={<AdminLogin />} />
+  <Route
+    path="/admin/dashboard"
+    element={
+      <ProtectedRoute>
+        <AdminDashboard />
+      </ProtectedRoute>
+    }
+  />
+  {/* <Route
+    path="/admin/image-upload"
+    element={
+      <ProtectedRoute>
+        <ImageUpload />
+      </ProtectedRoute>
+    }
+  /> */}
+   
+</Routes>
+{!isAdminPage && <Footer/>}
 
-      {!hideHeaderFooter &&  !hideFooter && <Footer/>
-      }
+     
       
     </>
   );
@@ -67,3 +84,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
