@@ -3,60 +3,65 @@ import React, { useState } from 'react';
 // Images grouped by department (no description)
 const DEPARTMENT_IMAGES = {
   'INTERNAL CARE': [
-    { id: 1, url: 'images/charity.jpg', alt: 'Bags of supplies', year: 2023 },
-    { id: 2, url: 'images/i1.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 6, url: 'images/i2.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 7, url: 'images/i3.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 8, url: 'images/i4.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 9, url: 'images/i5.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 10, url: 'images/i6.jpg', alt: 'Community workshop', year: 2024 },
+  
+    { id: 1, url: 'images/i1.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 2, url: 'images/i2.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 3, url: 'images/i3.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 4, url: 'images/i4.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 5, url: 'images/i5.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 90, url: 'images/i6.jpg', alt: 'Community workshop', year: 2024 },
   ],
   'HEALTH CARE': [
-    { id: 3, url: 'images/eyecamp.jpg', alt: 'Volunteers preparing goods', year: 2024 },
+    
     { id: 6, url: 'images/h1.jpg', alt: 'Community workshop', year: 2024 },
     { id: 7, url: 'images/h2.jpg', alt: 'Community workshop', year: 2024 },
     { id: 8, url: 'images/h3.jpg', alt: 'Community workshop', year: 2024 },
     { id: 9, url: 'images/h4.jpg', alt: 'Community workshop', year: 2024 },
     { id: 10, url: 'images/h5.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 6, url: 'images/h6.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 7, url: 'images/h7.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 8, url: 'images/h8.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 9, url: 'images/h9.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 10, url: 'images/h10.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 6, url: 'images/h11.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 7, url: 'images/h12.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 11, url: 'images/h6.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 12, url: 'images/h7.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 13, url: 'images/h8.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 14, url: 'images/h9.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 15, url: 'images/h10.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 16, url: 'images/h11.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 17, url: 'images/h12.jpg', alt: 'Community workshop', year: 2024 },
   ],
   'PUBLIC RELATIONS': [
-    { id: 4, url: 'images/p1.jpg', alt: 'Volunteers handing out supplies', year: 2023 },
-    { id: 6, url: 'images/p2.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 7, url: 'images/p3.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 8, url: 'images/p4.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 9, url: 'images/p5.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 10, url: 'images/p6.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 6, url: 'images/p7.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 7, url: 'images/p8.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 8, url: 'images/p9.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 9, url: 'images/p10.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 10, url: 'images/p11.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 6, url: 'images/p12.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 7, url: 'images/p13.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 18, url: 'images/p1.jpg', alt: 'Volunteers handing out supplies', year: 2023 },
+    { id: 19, url: 'images/p2.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 20, url: 'images/p3.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 21, url: 'images/p4.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 22, url: 'images/p5.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 23, url: 'images/p6.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 24, url: 'images/p7.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 25, url: 'images/p8.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 28, url: 'images/p9.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 29, url: 'images/p10.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 30, url: 'images/p11.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 36, url: 'images/p12.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 37, url: 'images/p13.jpg', alt: 'Community workshop', year: 2024 },
   ],
   'OUTSIDE CHARITY': [
-    { id: 5, url: 'images/o1.jpg', alt: 'Group photo after event', year: 2022 },
-    { id: 6, url: 'images/o2.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 7, url: 'images/o3.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 8, url: 'images/o4.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 9, url: 'images/o5.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 10, url: 'images/o6.jpg', alt: 'Community workshop', year: 2024 },
-    { id: 10, url: 'images/o7.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 45, url: 'images/o1.jpg', alt: 'Group photo after event', year: 2022 },
+    { id: 46, url: 'images/o2.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 47, url: 'images/o3.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 48, url: 'images/o4.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 49, url: 'images/o5.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 50, url: 'images/o6.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 40, url: 'images/o7.jpg', alt: 'Community workshop', year: 2024 },
   ],
 };
 
 // Carousel images (separate from department images)
 const CAROUSEL_IMAGES = [
-  { id: 'c1', url: 'images/carousel1.jpg', alt: 'Carousel Image 1' },
-  { id: 'c2', url: 'images/carousel2.jpg', alt: 'Carousel Image 2' },
-  { id: 'c3', url: 'images/carousel3.jpg', alt: 'Carousel Image 3' },
+  { id: 'c1', url: 'images/image1.jpg', alt: 'Carousel Image 1' },
+  { id: 'c2', url: 'images/image2.jpg', alt: 'Carousel Image 2' },
+  { id: 'c3', url: 'images/image3.jpg', alt: 'Carousel Image 3' },
+  { id: 'c4', url: 'images/image4.jpg', alt: 'Carousel Image 1' },
+  { id: 'c5', url: 'images/image5.jpg', alt: 'Carousel Image 2' },
+  { id: 'c6', url: 'images/image6.jpg', alt: 'Carousel Image 3' },
+  { id: 'c7', url: 'images/image7.jpg', alt: 'Carousel Image 2' },
+  { id: 'c8', url: 'images/image8.jpg', alt: 'Carousel Image 3' },
 ];
 
 const DEPARTMENTS = Object.keys(DEPARTMENT_IMAGES);
@@ -218,5 +223,6 @@ const Gallery = () => {
     </section>
   );
 };
+
 
 export default Gallery;
