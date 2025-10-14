@@ -16,10 +16,11 @@ const isAdminPage = location.pathname.startsWith("/admin");
         style={{ minHeight: "120px" }}
       >
         {/* Top Row: Logo + Heading + Hamburger */}
-        <div className="d-flex w-100 align-items-center">
+        <div className="d-flex w-100 align-items-center" style={{marginBottom:"20px"}}>
           <img
-            src="./images/hhlogo.png"
-            alt="Logo"
+            src={`${process.env.PUBLIC_URL}/images/hhlogo.png`}  
+
+alt="Logo"
             width="70"
             height="70"
             className="me-3"
@@ -50,10 +51,9 @@ const isAdminPage = location.pathname.startsWith("/admin");
             <span
               className="navbar-toggler-icon"
               style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
-                  viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-linecap='round' 
-                  stroke-miterlimit='10' stroke-width='2' 
-                  d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")`,
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
+    viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-linecap='round'
+    stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important`,
               }}
             ></span>
           </button>
@@ -65,7 +65,8 @@ const isAdminPage = location.pathname.startsWith("/admin");
           style={{
             backgroundColor: "white",
             borderRadius: "3px",
-            padding: "10px 30px",
+            position:'relative',
+            top:'-13px'
           }}
         >
           <ul className="navbar-nav d-flex flex-column flex-md-row justify-content-between align-items-center w-100">

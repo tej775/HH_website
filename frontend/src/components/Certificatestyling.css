@@ -154,7 +154,7 @@ body {
 @media (max-width: 768px) {
   body {
     display: block; /* allow scrolling */
-    padding: 10px;
+    /* padding: 10px; */
   }
 
   .form-container {

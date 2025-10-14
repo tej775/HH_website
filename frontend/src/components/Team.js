@@ -117,6 +117,191 @@ const teamCss = `
   color: #888;
   margin-bottom: 2px;
 }
+  /* Default styling (desktop/laptop) */
+.team-nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+
+.team-nav-btn {
+  background: #fff;
+  color: #f32f38ff;
+  border: 2px solid #fdbdc1ff;
+  border-radius: 30px;
+  padding: 12px 38px;
+  font-size: 1.18rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.04);
+}
+
+.team-nav-btn.active,
+.team-nav-btn:hover {
+  background: #e93d54ff;
+  color: #fff;
+  border: 2px solid #d63737ff;
+}
+
+/* Admin + button (desktop/laptop) */
+.add-member-btn {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d21919;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.add-member-btn:hover {
+  background-color: #b71515;
+  transform: scale(1.1);
+}
+
+/* --- Responsive styling for phones (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .team-nav {
+    flex-wrap: wrap; /* allow buttons to wrap */
+    gap: 12px;       /* smaller gap */
+  }
+
+  .team-nav-btn {
+    padding: 8px 16px;    /* smaller padding */
+    font-size: 0.95rem;   /* smaller font */
+         /* take full width on phone */
+  }
+
+  .add-member-btn {
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
+}
+  /* Default styling (desktop/laptop) */
+.team-nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+
+.team-nav-btn {
+  background: #fff;
+  color: #f32f38ff;
+  border: 2px solid #fdbdc1ff;
+  border-radius: 30px;
+  padding: 12px 38px;
+  font-size: 1.18rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.04);
+}
+
+.team-nav-btn.active,
+.team-nav-btn:hover {
+  background: #e93d54ff;
+  color: #fff;
+  border: 2px solid #d63737ff;
+}
+
+/* Admin + button (desktop/laptop) */
+.add-member-btn {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d21919;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.add-member-btn:hover {
+  background-color: #b71515;
+  transform: scale(1.1);
+}
+
+/* --- Mobile view: stack buttons vertically --- */
+@media (max-width: 480px) {
+  .team-nav {
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    gap: 12px;              /* space between buttons */
+    align-items: center;     /* center alignment */
+  }
+
+  .team-nav-btn {
+    padding: 10px 24px;     /* smaller padding */
+    font-size: 1rem;        /* smaller font */
+    width: 80%;             /* almost full width */
+    max-width: 300px;
+  }
+
+  .add-member-btn {
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
+}
+/* --- Admin + button (desktop) --- */
+.add-member-btn {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d21919;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+/* --- Mobile view adjustment --- */
+@media (max-width: 480px) {
+  .add-member-btn {
+    top: 199x !important;    /* closer to top */
+    right: 16px !important;  /* closer to right edge */
+    width: 40px;  /* smaller button */
+    height: 40px;
+    font-size: 1.6rem;
+  }
+}
+
+
 `;
 
 
@@ -220,8 +405,8 @@ export default function Team() {
           onClick={handleAddMember}
           style={{
             position: "absolute",
-            top: "32px",
-            right: "32px",
+            top: "236px",
+            right: "115px",
             fontSize: "2rem",
             width: "50px",
             height: "50px",
@@ -233,6 +418,7 @@ export default function Team() {
             boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
           }}
           title="Add New Member"
+          className="add-member-btn"
         >
           +
         </button>
