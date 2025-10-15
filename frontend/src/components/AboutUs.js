@@ -210,7 +210,7 @@ export default function AboutUs() {
       </section>
       <section className="funding_resources ">
         <h2
-          style={{ fontSize: "1.5rem", color: "#7f1d1d" }}
+          style={{ fontSize: "1.5rem", color: "#7f1d1d" ,}}
           className="text-center"
         >
           Funding Resources
@@ -334,7 +334,7 @@ export default function AboutUs() {
           <br />
         </div>
       </section>
-      <section className="selection d-flex flex-column  rounded">
+      <section className="selection d-flex flex-column  rounded" style={{marginBottom: "clamp(1rem, 5vw, 4rem)"}}>
         <img
           src="/images/volunteer.png"
           alt=""
