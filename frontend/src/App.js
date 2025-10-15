@@ -50,7 +50,7 @@ const isLogin = location.pathname==='/admin/login'
   {/* Admin routes */}
   <Route path="/admin/login" element={<AdminLogin />} />
   <Route
-    path="/admin/dashboard"
+    path="/admin"
     element={
       <ProtectedRoute>
         <AdminDashboard />

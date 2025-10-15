@@ -14,7 +14,7 @@ export default function AdminLogin() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/admin/dashboard");
+      navigate("/admin");
     } catch (err) {
       setError("Invalid credentials or network error");
     }

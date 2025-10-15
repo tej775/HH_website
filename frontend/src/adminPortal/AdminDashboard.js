@@ -8,7 +8,7 @@ export default function AdminDashboard() {
 
   const handleLogout = async () => {
     await signOut(auth);
-    navigate("/admin-login");
+    navigate("/admin/login");
   };
 
   return (
