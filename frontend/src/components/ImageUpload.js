@@ -1,4 +1,6 @@
+
 // import { useState } from "react";
+// import { useNavigate } from "react-router-dom"; // ✅ import
 
 // const CATEGORIES = [
 //   { label: "Executive Committee", key: "executive" },
@@ -12,6 +14,9 @@
 //   const [category, setCategory] = useState(CATEGORIES[0].key);
 //   const [role, setRole] = useState("");
 //   const [year, setYear] = useState("");
+//   const [successMessage, setSuccessMessage] = useState(""); // ✅ success message
+
+//   const navigate = useNavigate(); // ✅ navigate
 
 //   const handleFileChange = (e) => {
 //     const selectedFile = e.target.files[0];
@@ -48,12 +53,18 @@
 
 //       const data = await res.json();
 //       if (res.ok) {
-//         alert("Member added successfully!");
+//         // ✅ Show success message instead of alert
+//         setSuccessMessage("Member added successfully!");
+
+//         // ✅ Clear form fields
 //         setFile(null);
 //         setName("");
 //         setRole("");
 //         setYear("");
 //         setCategory(CATEGORIES[0].key);
+
+//         // ✅ Navigate to Team page after a short delay (optional: 1 sec)
+//         setTimeout(() => navigate("/admin/ourTeam"), 1000);
 //       } else {
 //         alert("Error: " + data.message);
 //       }
@@ -73,6 +84,19 @@
 //       backgroundColor: "#fff"
 //     }}>
 //       <h2 style={{ textAlign: "center", marginBottom: "24px", color: "maroon" }}>Add New Team Member</h2>
+
+//       {successMessage && (
+//         <div style={{
+//           marginBottom: "16px",
+//           padding: "12px",
+//           backgroundColor: "#d4edda",
+//           color: "#155724",
+//           borderRadius: "6px",
+//           textAlign: "center"
+//         }}>
+//           {successMessage}
+//         </div>
+//       )}
 
 //       <div style={{ marginBottom: "16px" }}>
 //         <label>Name:</label>
@@ -150,11 +174,8 @@
 //   );
 // }
 
-
-
-
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ import
+import { useNavigate } from "react-router-dom";
 
 const CATEGORIES = [
   { label: "Executive Committee", key: "executive" },
@@ -168,9 +189,10 @@ export default function AdminMemberForm() {
   const [category, setCategory] = useState(CATEGORIES[0].key);
   const [role, setRole] = useState("");
   const [year, setYear] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // ✅ success message
+  const [successMessage, setSuccessMessage] = useState("");
+  const [loading, setLoading] = useState(false); // ✅ added
 
-  const navigate = useNavigate(); // ✅ navigate
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -188,7 +210,13 @@ export default function AdminMemberForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!file || !name || !category || ((category === "executive" && !role) || ((category === "students" || category === "web") && !year))) {
+    if (
+      !file ||
+      !name ||
+      !category ||
+      ((category === "executive" && !role) ||
+        ((category === "students" || category === "web") && !year))
+    ) {
       return alert("Please fill all required fields");
     }
 
@@ -199,6 +227,8 @@ export default function AdminMemberForm() {
     if (category === "executive") formData.append("role", role);
     else formData.append("year", year);
 
+    setLoading(true); // ✅ disable button
+
     try {
       const res = await fetch("http://localhost:5000/upload", {
         method: "POST",
@@ -207,17 +237,13 @@ export default function AdminMemberForm() {
 
       const data = await res.json();
       if (res.ok) {
-        // ✅ Show success message instead of alert
         setSuccessMessage("Member added successfully!");
-
-        // ✅ Clear form fields
         setFile(null);
         setName("");
         setRole("");
         setYear("");
         setCategory(CATEGORIES[0].key);
 
-        // ✅ Navigate to Team page after a short delay (optional: 1 sec)
         setTimeout(() => navigate("/admin/ourTeam"), 1000);
       } else {
         alert("Error: " + data.message);
@@ -225,29 +251,40 @@ export default function AdminMemberForm() {
     } catch (err) {
       console.error(err);
       alert("Something went wrong while uploading");
+    } finally {
+      setLoading(false); // ✅ re-enable button
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{
-      maxWidth: "500px",
-      margin: "40px auto",
-      padding: "24px",
-      borderRadius: "12px",
-      boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
-      backgroundColor: "#fff"
-    }}>
-      <h2 style={{ textAlign: "center", marginBottom: "24px", color: "maroon" }}>Add New Team Member</h2>
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        maxWidth: "500px",
+        margin: "40px auto",
+        padding: "24px",
+        borderRadius: "12px",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+        backgroundColor: "#fff",
+      }}
+    >
+      <h2
+        style={{ textAlign: "center", marginBottom: "24px", color: "maroon" }}
+      >
+        Add New Team Member
+      </h2>
 
       {successMessage && (
-        <div style={{
-          marginBottom: "16px",
-          padding: "12px",
-          backgroundColor: "#d4edda",
-          color: "#155724",
-          borderRadius: "6px",
-          textAlign: "center"
-        }}>
+        <div
+          style={{
+            marginBottom: "16px",
+            padding: "12px",
+            backgroundColor: "#d4edda",
+            color: "#155724",
+            borderRadius: "6px",
+            textAlign: "center",
+          }}
+        >
           {successMessage}
         </div>
       )}
@@ -312,18 +349,23 @@ export default function AdminMemberForm() {
         />
       </div>
 
-      <button type="submit" style={{
-        width: "100%",
-        padding: "12px",
-        backgroundColor: "maroon",
-        color: "#fff",
-        border: "none",
-        borderRadius: "6px",
-        cursor: "pointer",
-        fontWeight: "bold"
-      }}>
-        Add Member
+      <button
+        type="submit"
+        disabled={loading} // ✅ disable during upload
+        style={{
+          width: "100%",
+          padding: "12px",
+          backgroundColor: loading ? "#999" : "maroon",
+          color: "#fff",
+          border: "none",
+          borderRadius: "6px",
+          cursor: loading ? "not-allowed" : "pointer",
+          fontWeight: "bold",
+        }}
+      >
+        {loading ? "Adding..." : "Add Member"} {/* ✅ show progress text */}
       </button>
     </form>
   );
 }
+

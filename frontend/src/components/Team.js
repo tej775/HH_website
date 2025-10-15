@@ -19,14 +19,38 @@ const teamCss = `
 .member-name { font-size: 1.18rem; font-weight: 700; color: #fcb4b4ff; margin-bottom: 4px;}
 .member-role { font-size: 1.05rem; color: #444; margin-bottom: 2px; font-weight: 500;}
 .member-year { font-size: 0.98rem; color: #888; margin-bottom: 2px;}
-.add-member-btn { position: absolute; top: 32px; right: 32px; font-size: 2rem; width: 50px; height: 50px; border-radius: 50%; border: none; background-color: #d21919; color: #fff; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; transition: all 0.2s;}
+.add-member-btn { position: absolute; top: 209px; right: 42px; font-size: 2rem; width: 50px; height: 50px; border-radius: 50%; border: none; background-color: #7f1d1d; color: #fff; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; transition: all 0.2s;}
 .add-member-btn:hover { background-color: #b71515; transform: scale(1.1);}
 .member-actions { display: flex; justify-content: center; gap: 8px; margin-top: 12px;}
 .member-actions button { padding: 6px 12px; border: none; border-radius: 6px; color: #fff; cursor: pointer;}
-.member-actions .update-btn { background: #f0ad4e;}
 .member-actions .delete-btn { background: #d9534f;}
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 999;}
-.modal-content { background: #fff; padding: 24px; border-radius: 12px; width: 450px; max-width: 95%; position: relative; animation: fadeIn 0.25s ease;}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+// .modal-content { background: #fff; padding: 24px; border-radius: 12px; width: 450px; max-width: 95%; position: relative; animation: fadeIn 0.25s ease;}
+.modal-content {
+  background: rgba(255, 255, 255, 0.95) !important;
+  padding: 24px;
+  border-radius: 12px;
+  width: 50%;              /* ⬅️ make it half width */
+  max-width: 600px;        /* ⬅️ prevent it from getting too big on large screens */
+  min-width: 320px;        /* ⬅️ keep it readable on small screens */
+  position: relative;
+  animation: fadeIn 0.25s ease;
+  margin: 0 auto;          /* ⬅️ horizontally center it */
+  box-shadow: 0 4px 24px rgba(244, 248, 246, 0.39);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 .modal-content h2 { margin-bottom: 16px; text-align: center; color: #d21919;}
 .modal-content label { display: block; margin-top: 12px; font-weight: 500;}
 .modal-content input, .modal-content select { width: 100%; padding: 8px 10px; margin-top: 4px; border-radius: 6px; border: 1px solid #ccc;}
@@ -34,14 +58,47 @@ const teamCss = `
 .modal-content .modal-buttons button { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer;}
 .modal-content .save-btn { background: #28a745; color: #fff;}
 .modal-content .cancel-btn { background: #d9534f; color: #fff;}
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.9) url("/images/hhlogo.png") center center no-repeat;
+  background-size: 50px; 
+  z-index: 2000;
+}
+
+
+.spinner {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 6px solid #b71515;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
 @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
 @media (max-width: 480px) {
   .team-nav { flex-direction: column; gap: 12px; align-items: center;}
   .team-nav-btn { width: 80%;}
-  .add-member-btn { top: 16px; right: 16px; width: 38px; height: 38px; font-size: 1.4rem;}
+  .add-member-btn { top: 204px; right: 16px; width: 38px; height: 38px; font-size: 1.4rem;}
   .member-card { width: 90%;}
   .modal-content { width: 90%;}
-}
+  
 `;
 
 if (typeof document !== "undefined" && !document.getElementById("team-css")) {
@@ -57,6 +114,8 @@ export default function Team() {
   const [selectedMemberId, setSelectedMemberId] = useState(null); // For toggle buttons
   const [modalOpen, setModalOpen] = useState(false);
   const [editMember, setEditMember] = useState({});
+  const [loading, setLoading] = useState(true);
+
   const location = useLocation();
   const navigate = useNavigate();
   const isAdminPage = location.pathname.startsWith("/admin");
@@ -72,7 +131,9 @@ export default function Team() {
         { iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
       );
       return decrypted.toString(CryptoJS.enc.Utf8);
-    } catch { return ""; }
+    } catch {
+      return "";
+    }
   };
 
   const decryptImage = (encryptedBase64, ivHex) => {
@@ -86,107 +147,209 @@ export default function Team() {
         key,
         { iv, mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }
       );
-      const typedArray = Uint8Array.from(decrypted.words.flatMap(w => [(w>>24)&0xFF,(w>>16)&0xFF,(w>>8)&0xFF,w&0xFF])).slice(0,decrypted.sigBytes);
-      let binary=""; typedArray.forEach(b=>binary+=String.fromCharCode(b));
+      const typedArray = Uint8Array.from(
+        decrypted.words.flatMap((w) => [
+          (w >> 24) & 0xff,
+          (w >> 16) & 0xff,
+          (w >> 8) & 0xff,
+          w & 0xff,
+        ])
+      ).slice(0, decrypted.sigBytes);
+      let binary = "";
+      typedArray.forEach((b) => (binary += String.fromCharCode(b)));
       return `data:image/jpeg;base64,${btoa(binary)}`;
-    } catch { return ""; }
+    } catch {
+      return "";
+    }
   };
 
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:5000/team")
-      .then(res => res.json())
-      .then(data => {
-        const decryptedMembers = data.map(m=>({
+      .then((res) => res.json())
+      .then((data) => {
+        const decryptedMembers = data.map((m) => ({
           id: m.id,
           category: m.category,
-          name: decryptText(m.name,m.iv),
-          role: m.role ? decryptText(m.role,m.iv) : "",
-          year: m.year ? decryptText(m.year,m.iv) : "",
-          photo: decryptImage(m.image,m.iv)
+          name: decryptText(m.name, m.iv),
+          role: m.role ? decryptText(m.role, m.iv) : "",
+          year: m.year ? decryptText(m.year, m.iv) : "",
+          photo: decryptImage(m.image, m.iv),
+        }));
+        setMembers(decryptedMembers);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/team")
+      .then((res) => res.json())
+      .then((data) => {
+        const decryptedMembers = data.map((m) => ({
+          id: m.id,
+          category: m.category,
+          name: decryptText(m.name, m.iv),
+          role: m.role ? decryptText(m.role, m.iv) : "",
+          year: m.year ? decryptText(m.year, m.iv) : "",
+          photo: decryptImage(m.image, m.iv),
         }));
         setMembers(decryptedMembers);
       });
   }, []);
 
   const categorized = {
-    executive: members.filter(m => m.category === "executive"),
-    students: members.filter(m => m.category === "students"),
-    web: members.filter(m => m.category === "web"),
+    executive: members.filter((m) => m.category === "executive"),
+    students: members.filter((m) => m.category === "students"),
+    web: members.filter((m) => m.category === "web"),
   };
 
   const currentMembers = categorized[selectedTab] || [];
   const handleAddMember = () => navigate("/admin/add-member");
 
   const handleEditClick = (member) => {
-    setSelectedMemberId(prev => prev === member.id ? null : member.id); // toggle buttons
+    setSelectedMemberId((prev) => (prev === member.id ? null : member.id)); // toggle buttons
     setEditMember(member);
-    setModalOpen(prev => prev || (prev === false && true)); // open modal only when clicking edit button
+    setModalOpen((prev) => prev || (prev === false && true)); // open modal only when clicking edit button
   };
 
   // Inside Team.js, update handleModalSave and handleDelete:
 
-const handleModalSave = () => {
-  const formData = new FormData();
-  formData.append("name", editMember.name);
-  if (editMember.role !== undefined) formData.append("role", editMember.role);
-  if (editMember.year !== undefined) formData.append("year", editMember.year);
-  formData.append("category", editMember.category);
-  if (editMember.file) formData.append("image", editMember.file);
+  const handleModalSave = () => {
+    const formData = new FormData();
+    formData.append("name", editMember.name);
+    if (editMember.role !== undefined) formData.append("role", editMember.role);
+    if (editMember.year !== undefined) formData.append("year", editMember.year);
+    formData.append("category", editMember.category);
+    if (editMember.file) formData.append("image", editMember.file);
 
-  fetch(`http://localhost:5000/team/${editMember.category}/${editMember.id}`, {
-    method: "PUT",
-    body: formData
-  })
-  .then(res => res.json())
-  .then(updated => {
-    // Decrypt updated data on frontend
-    const updatedMember = {
-      id: updated.member.id,
-      category: updated.member.category,
-      name: decryptText(updated.member.name, updated.member.iv),
-      role: updated.member.role ? decryptText(updated.member.role, updated.member.iv) : "",
-      year: updated.member.year ? decryptText(updated.member.year, updated.member.iv) : "",
-      photo: decryptImage(updated.member.image, updated.member.iv)
-    };
-    setMembers(prev => prev.map(m => m.id === updatedMember.id ? updatedMember : m));
-    setModalOpen(false);
-    setSelectedMemberId(null);
-  });
-};
+    fetch(
+      `http://localhost:5000/team/${editMember.category}/${editMember.id}`,
+      {
+        method: "PUT",
+        body: formData,
+      }
+    )
+      .then((res) => res.json())
+      .then((updated) => {
+        // Decrypt updated data on frontend
+        const updatedMember = {
+          id: updated.member.id,
+          category: updated.member.category,
+          name: decryptText(updated.member.name, updated.member.iv),
+          role: updated.member.role
+            ? decryptText(updated.member.role, updated.member.iv)
+            : "",
+          year: updated.member.year
+            ? decryptText(updated.member.year, updated.member.iv)
+            : "",
+          photo: decryptImage(updated.member.image, updated.member.iv),
+        };
+        setMembers((prev) =>
+          prev.map((m) => (m.id === updatedMember.id ? updatedMember : m))
+        );
+        setModalOpen(false);
+        setSelectedMemberId(null);
+      });
+  };
 
-const handleDelete = (member) => {
-  if (window.confirm("Are you sure you want to delete this member?")) {
-    fetch(`http://localhost:5000/team/${member.category}/${member.id}`, { method: "DELETE" })
-      .then(res => res.json())
-      .then(() => setMembers(prev => prev.filter(m => m.id !== member.id)));
+  const handleDelete = (member) => {
+    if (window.confirm("Are you sure you want to delete this member?")) {
+      fetch(`http://localhost:5000/team/${member.category}/${member.id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then(() =>
+          setMembers((prev) => prev.filter((m) => m.id !== member.id))
+        );
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="loading-overlay">
+        <div className="spinner"></div>
+      </div>
+    );
   }
-};
-
 
   return (
     <div className="team-container">
       <h1 className="team-heading">Our Team</h1>
 
-      {isAdminPage && <button onClick={handleAddMember} className="add-member-btn" title="Add New Member">+</button>}
+      {isAdminPage && (
+        <button
+          onClick={handleAddMember}
+          className="add-member-btn"
+          title="Add New Member"
+        >
+          +
+        </button>
+      )}
 
       <div className="team-nav">
-        <button className={`team-nav-btn${selectedTab==="executive"?" active":""}`} onClick={()=>setSelectedTab("executive")}>Executive Committee</button>
-        <button className={`team-nav-btn${selectedTab==="students"?" active":""}`} onClick={()=>setSelectedTab("students")}>Students</button>
-        <button className={`team-nav-btn${selectedTab==="web"?" active":""}`} onClick={()=>setSelectedTab("web")}>Web Team</button>
+        <button
+          className={`team-nav-btn${
+            selectedTab === "executive" ? " active" : ""
+          }`}
+          onClick={() => setSelectedTab("executive")}
+        >
+          Executive Committee
+        </button>
+        <button
+          className={`team-nav-btn${
+            selectedTab === "students" ? " active" : ""
+          }`}
+          onClick={() => setSelectedTab("students")}
+        >
+          Students
+        </button>
+        <button
+          className={`team-nav-btn${selectedTab === "web" ? " active" : ""}`}
+          onClick={() => setSelectedTab("web")}
+        >
+          Web Team
+        </button>
       </div>
 
       <div className="members-list">
-        {currentMembers.map(member=>(
-          <div className="member-card" key={member.id} onClick={()=>isAdminPage && setSelectedMemberId(prev=>prev===member.id?null:member.id)}>
-            <img src={member.photo} alt={member.name} className="member-photo"/>
+        {currentMembers.map((member) => (
+          <div
+            className="member-card"
+            key={member.id}
+            onClick={() =>
+              isAdminPage &&
+              setSelectedMemberId((prev) =>
+                prev === member.id ? null : member.id
+              )
+            }
+          >
+            <img
+              src={member.photo}
+              alt={member.name}
+              className="member-photo"
+            />
             <div className="member-name">{member.name}</div>
             {member.role && <div className="member-role">{member.role}</div>}
             {member.year && <div className="member-year">{member.year}</div>}
 
-            {isAdminPage && selectedMemberId===member.id && (
+            {isAdminPage && selectedMemberId === member.id && (
               <div className="member-actions">
-                <button className="update-btn" onClick={()=>{handleEditClick(member); setModalOpen(true)}}>Edit</button>
-                <button className="delete-btn" onClick={()=>handleDelete(member)}>Delete</button>
+                <button
+                  className="update-btn btn-primary btn"
+                  onClick={() => {
+                    handleEditClick(member);
+                    setModalOpen(true);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  className="delete-btn"
+                  onClick={() => handleDelete(member)}
+                >
+                  Delete
+                </button>
               </div>
             )}
           </div>
@@ -194,41 +357,88 @@ const handleDelete = (member) => {
       </div>
 
       {modalOpen && (
-        <div className="modal-overlay" onClick={()=>setModalOpen(false)}>
-          <div className="modal-content" onClick={e=>e.stopPropagation()}>
+        <div className="modal-overlay" onClick={() => setModalOpen(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>Edit Member</h2>
 
             <label>Name</label>
-            <input type="text" value={editMember.name||""} onChange={e=>setEditMember({...editMember,name:e.target.value})}/>
+            <input
+              type="text"
+              value={editMember.name || ""}
+              onChange={(e) =>
+                setEditMember({ ...editMember, name: e.target.value })
+              }
+            />
 
-            {editMember.category==="executive" && <>
-              <label>Role</label>
-              <input type="text" value={editMember.role||""} onChange={e=>setEditMember({...editMember,role:e.target.value})}/>
-            </>}
+            {editMember.category === "executive" && (
+              <>
+                <label>Role</label>
+                <input
+                  type="text"
+                  value={editMember.role || ""}
+                  onChange={(e) =>
+                    setEditMember({ ...editMember, role: e.target.value })
+                  }
+                />
+              </>
+            )}
 
-            {editMember.category==="students" && <>
-              <label>Year</label>
-              <input type="text" value={editMember.year||""} onChange={e=>setEditMember({...editMember,year:e.target.value})}/>
-            </>}
+            {editMember.category === "students" && (
+              <>
+                <label>Year</label>
+                <input
+                  type="text"
+                  value={editMember.year || ""}
+                  onChange={(e) =>
+                    setEditMember({ ...editMember, year: e.target.value })
+                  }
+                />
+              </>
+            )}
 
-            {editMember.category==="web" && <>
-              <label>Role</label>
-              <input type="text" value={editMember.role||""} onChange={e=>setEditMember({...editMember,role:e.target.value})}/>
-            </>}
+            {editMember.category === "web" && (
+              <>
+                <label>Role</label>
+                <input
+                  type="text"
+                  value={editMember.role || ""}
+                  onChange={(e) =>
+                    setEditMember({ ...editMember, role: e.target.value })
+                  }
+                />
+              </>
+            )}
 
             <label>Category</label>
-            <select value={editMember.category||""} onChange={e=>setEditMember({...editMember,category:e.target.value})}>
+            <select
+              value={editMember.category || ""}
+              onChange={(e) =>
+                setEditMember({ ...editMember, category: e.target.value })
+              }
+            >
               <option value="executive">Executive Committee</option>
               <option value="students">Students</option>
               <option value="web">Web Team</option>
             </select>
 
             <label>Photo</label>
-            <input type="file" onChange={e=>setEditMember({...editMember,file:e.target.files[0]})}/>
+            <input
+              type="file"
+              onChange={(e) =>
+                setEditMember({ ...editMember, file: e.target.files[0] })
+              }
+            />
 
             <div className="modal-buttons">
-              <button className="cancel-btn" onClick={()=>setModalOpen(false)}>Cancel</button>
-              <button className="save-btn" onClick={handleModalSave}>Save</button>
+              <button
+                className="cancel-btn"
+                onClick={() => setModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button className="save-btn" onClick={handleModalSave}>
+                Save
+              </button>
             </div>
           </div>
         </div>
@@ -236,4 +446,3 @@ const handleDelete = (member) => {
     </div>
   );
 }
-
