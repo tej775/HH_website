@@ -17,6 +17,6 @@ export default function ProtectedRoute({ children }) {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (!user) return <Navigate to="/admin-login" />;
+  if (!user) return <Navigate to="/admin/login" />;
   return children;
 }
