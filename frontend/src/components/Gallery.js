@@ -1,195 +1,249 @@
-// src/ImageGallery.js
-
 import React, { useState } from 'react';
 
-// Array of image sources (use public folder for images)
-const IMAGES = [
-  '/images/hq720.jpg',
-  '/images/charity.jpg',
-  '/images/image3.jpg',
-  '/images/image4.jpg',
-  '/images/image5.jpg',
+// Images grouped by department (no description)
+const DEPARTMENT_IMAGES = {
+  'INTERNAL CARE': [
+  
+    { id: 1, url: 'images/i1.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 2, url: 'images/i2.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 3, url: 'images/i3.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 4, url: 'images/i4.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 5, url: 'images/i5.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 90, url: 'images/i6.jpg', alt: 'Community workshop', year: 2024 },
+  ],
+  'HEALTH CARE': [
+    
+    { id: 6, url: 'images/h1.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 7, url: 'images/h2.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 8, url: 'images/h3.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 9, url: 'images/h4.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 10, url: 'images/h5.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 11, url: 'images/h6.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 12, url: 'images/h7.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 13, url: 'images/h8.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 14, url: 'images/h9.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 15, url: 'images/h10.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 16, url: 'images/h11.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 17, url: 'images/h12.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 10, url: 'images/h13.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 11, url: 'images/h14.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 12, url: 'images/h15.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 13, url: 'images/h16.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 14, url: 'images/h17.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 15, url: 'images/h18.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 16, url: 'images/h19.jpg', alt: 'Community workshop', year: 2024 },
+    
+  ],
+  'PUBLIC RELATIONS': [
+    { id: 18, url: 'images/p1.jpg', alt: 'Volunteers handing out supplies', year: 2023 },
+    { id: 19, url: 'images/p2.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 20, url: 'images/p3.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 21, url: 'images/p4.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 22, url: 'images/p5.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 23, url: 'images/p6.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 24, url: 'images/p7.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 25, url: 'images/p8.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 28, url: 'images/p9.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 29, url: 'images/p10.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 30, url: 'images/p11.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 36, url: 'images/p12.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 37, url: 'images/p13.jpg', alt: 'Community workshop', year: 2024 },
+     { id: 28, url: 'images/p14.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 29, url: 'images/p15.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 30, url: 'images/p16.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 36, url: 'images/p17.jpg', alt: 'Community workshop', year: 2024 },
+   
+  ],
+  'OUTSIDE CHARITY': [
+    { id: 45, url: 'images/o1.jpg', alt: 'Group photo after event', year: 2022 },
+    { id: 46, url: 'images/o2.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 47, url: 'images/o3.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 48, url: 'images/o4.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 49, url: 'images/o5.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 50, url: 'images/o6.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 40, url: 'images/o7.jpg', alt: 'Community workshop', year: 2024 },
+     { id: 28, url: 'images/o8.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 29, url: 'images/o9.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 30, url: 'images/o10.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 36, url: 'images/o11.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 37, url: 'images/o12.jpg', alt: 'Community workshop', year: 2024 },
+    { id: 37, url: 'images/o13.jpg', alt: 'Community workshop', year: 2024 },
+  ],
+};
+
+// Carousel images (separate from department images)
+const CAROUSEL_IMAGES = [
+  { id: 'c1', url: 'images/image1.jpg', alt: 'Carousel Image 1' },
+  { id: 'c2', url: 'images/image2.jpg', alt: 'Carousel Image 2' },
+  { id: 'c3', url: 'images/image3.jpg', alt: 'Carousel Image 3' },
+  { id: 'c4', url: 'images/image4.jpg', alt: 'Carousel Image 1' },
+  { id: 'c5', url: 'images/image5.jpg', alt: 'Carousel Image 2' },
+  { id: 'c6', url: 'images/image6.jpg', alt: 'Carousel Image 3' },
+  { id: 'c7', url: 'images/image7.jpg', alt: 'Carousel Image 2' },
+  { id: 'c8', url: 'images/image8.jpg', alt: 'Carousel Image 3' },
 ];
 
-/* Gallery.css styles */
-const galleryCss = `
-.gallery-container {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  border-radius: 0;
-  box-shadow: none;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.gallery-heading {
-  font-size: 2.5rem;
-  margin-bottom: 24px;
-  color: #333;
-  letter-spacing: 1px;
-}
-.main-gallery {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex: 1;
-}
-.image-wrapper {
-  position: relative;
-  flex: 1;
-  max-width: 90vw;
-  max-height: 80vh;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 1px 16px rgba(0,0,0,0.10);
-  background: #f8f8f8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: box-shadow 0.2s;
-}
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s;
-  cursor: pointer;
-}
-.image-wrapper:hover .gallery-image,
-.image-wrapper:active .gallery-image {
-  transform: scale(1.04) rotate(-1deg);
-  box-shadow: 0 8px 32px rgba(25,118,210,0.13);
-}
-.slide-nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(167, 13, 33, 0.93);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  opacity: 0.85;
-}
-.slide-nav-button:hover {
-  background: #eb3c53ff;
-  transform: translateY(-50%) scale(1.08);
-}
-.slide-nav-button.left {
-  left: 16px;
-}
-.slide-nav-button.right {
-  right: 16px;
-}
-.image-info {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -60px;
-  background: rgba(243, 108, 115, 0.92);
-  color: #fff;
-  font-size: 1.6rem;
-  padding: 18px 0 12px 0;
-  border-radius: 0 0 16px 16px;
-  text-align: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: bottom 0.35s cubic-bezier(.4,2,.6,1), opacity 0.25s;
-}
-.image-wrapper.show-info .image-info {
-  bottom: 0;
-  opacity: 1;
-  pointer-events: auto;
-}
-`;
+const DEPARTMENTS = Object.keys(DEPARTMENT_IMAGES);
 
-// Inject the CSS into the document head (for demo purposes)
-if (typeof document !== 'undefined' && !document.getElementById('gallery-css')) {
-  const style = document.createElement('style');
-  style.id = 'gallery-css';
-  style.innerHTML = galleryCss;
-  document.head.appendChild(style);
-}
+const styles = {
+  section: { textAlign: 'center', padding: '40px 0', fontFamily: 'Arial, sans-serif', },
+  title: { fontSize: '2em', color: '#c90000ff', marginBottom: '20px', fontWeight: 'bold', },
+  filterRow: { display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '30px' },
+  select: { padding: '8px 16px', fontSize: '1em', borderRadius: '6px', border: '1px solid #ccc', outline: 'none' },
+  input: { padding: '8px 16px', fontSize: '1em', borderRadius: '6px', border: '1px solid #ccc', outline: 'none', width: '120px' },
+  galleryContainer: { display: 'flex', alignItems: 'center', width: '90%', maxWidth: '1200px', margin: '0 auto', position: 'relative', },
+  imagesWrapper: { display: 'flex', gap: '15px', padding: '10px 0', flexGrow: 1, overflow: 'visible', justifyContent: 'center', flexWrap: 'wrap' },
+  imageCard: {
+    position: 'relative',
+    flex: '0 0 300px',
+    height: '200px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    cursor: 'pointer',
+    marginBottom: '16px',
+    background: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  galleryImage: {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    display: 'block',
+  },
+  navArrow: {
+    backgroundColor: 'rgba(175, 9, 9, 1)',
+    border: '1px solid #ccc',
+    borderRadius: '50%',
+    width: '40px',
+    height: '40px',
+    fontSize: '1.5em',
+    cursor: 'pointer',
+    zIndex: 10,
+    margin: '0 10px',
+    lineHeight: '1',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: 'bold',
+    userSelect: 'none',
+    boxShadow: '0 2px 5px rgba(226, 24, 34, 0.93)',
+    transition: 'background-color 0.2s ease',
+    color: '#fff',
+  },
+  navArrowHover: { backgroundColor: '#ec5c5cff', }
+};
+
+const ImageCard = ({ imageUrl, altText }) => (
+  <div style={styles.imageCard}>
+    <img src={imageUrl} alt={altText} style={styles.galleryImage} />
+  </div>
+);
 
 const Gallery = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [showInfo, setShowInfo] = useState(false);
+  const [selectedDept, setSelectedDept] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
 
-  // Show next image, wrapping around
-  const showNextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
-    setShowInfo(false);
+  // Get images for selected department and year
+  let imagesToShow = [];
+  if (selectedDept) {
+    imagesToShow = DEPARTMENT_IMAGES[selectedDept].filter(img =>
+      selectedYear ? img.year === Number(selectedYear) : true
+    );
+  }
+
+  // Carousel navigation for carousel images only
+  const [carouselIdx, setCarouselIdx] = useState(0);
+  const CAROUSEL_PER_ROW = 3; // Show three carousel images side by side
+  const carouselEndIdx = carouselIdx + CAROUSEL_PER_ROW;
+  const visibleCarouselImages = CAROUSEL_IMAGES.slice(carouselIdx, carouselEndIdx);
+
+  const handleCarouselPrev = () => {
+    setCarouselIdx(prev => Math.max(prev - CAROUSEL_PER_ROW, 0));
   };
 
-  // Show previous image, wrapping around
-  const showPrevImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + IMAGES.length) % IMAGES.length);
-    setShowInfo(false);
+  const handleCarouselNext = () => {
+    setCarouselIdx(prev => (prev + CAROUSEL_PER_ROW < CAROUSEL_IMAGES.length ? prev + CAROUSEL_PER_ROW : prev));
   };
-
-  // Example info text for each image (customize as needed)
-  const imageInfos = [
-    "This is the first image description.",
-    "EYE CAMP-2023.",
-    "Third gallery image details.",
-    "Fourth image from the event.",
-    "Fifth image in the gallery."
-  ];
-
-  // For touch devices, toggle info on tap
-  const handleImageClick = () => setShowInfo((v) => !v);
 
   return (
-    <div className="gallery-container">
-      <h1 className="gallery-heading">Latest Images</h1>
-      <div className="main-gallery">
-        <div
-          className={`image-wrapper${showInfo ? ' show-info' : ''}`}
-          onClick={handleImageClick}
-          onMouseLeave={() => setShowInfo(false)}
+    <section style={styles.section}>
+      <h2 style={styles.title}>Latest Images</h2>
+      {/* Filters for department and year (placed after title and before carousel) */}
+      <div style={styles.filterRow}>
+        <select
+          style={styles.select}
+          value={selectedDept}
+          onChange={e => { setSelectedDept(e.target.value); }}
         >
+          <option value="">All Departments</option>
+          {DEPARTMENTS.map(dept => (
+            <option key={dept} value={dept}>{dept}</option>
+          ))}
+        </select>
+        <input
+          style={styles.input}
+          type="number"
+          placeholder="Enter Year"
+          value={selectedYear}
+          onChange={e => { setSelectedYear(e.target.value); }}
+        />
+      </div>
+      {/* Carousel only if no department is selected */}
+      {!selectedDept && (
+        <div style={styles.galleryContainer}>
           <button
-            onClick={(e) => { e.stopPropagation(); showPrevImage(); }}
-            className="slide-nav-button left"
-            aria-label="Previous Image"
+            style={styles.navArrow}
+            onClick={handleCarouselPrev}
+            aria-label="Previous Carousel Image"
+            disabled={carouselIdx === 0}
           >
             &lt;
           </button>
-          <img
-            src={IMAGES[currentIndex]}
-            alt={`Gallery Image ${currentIndex + 1}`}
-            className="gallery-image"
-            draggable={false}
-          />
+          <div style={styles.imagesWrapper}>
+            {visibleCarouselImages.map(image => (
+              <ImageCard
+                key={image.id}
+                imageUrl={image.url}
+                altText={image.alt}
+              />
+            ))}
+          </div>
           <button
-            onClick={(e) => { e.stopPropagation(); showNextImage(); }}
-            className="slide-nav-button right"
-            aria-label="Next Image"
+            style={styles.navArrow}
+            onClick={handleCarouselNext}
+            aria-label="Next Carousel Image"
+            disabled={carouselEndIdx >= CAROUSEL_IMAGES.length}
           >
             &gt;
           </button>
-          <div className="image-info">
-            {imageInfos[currentIndex]}
+        </div>
+      )}
+      {/* Department images (only when a department is selected) */}
+      {selectedDept && (
+        <div style={styles.galleryContainer}>
+          <div style={styles.imagesWrapper}>
+            {imagesToShow.length === 0 ? (
+              <div style={{ fontSize: '1.2em', color: '#888', margin: 'auto' }}>No images found.</div>
+            ) : (
+              imagesToShow.map(image => (
+                <ImageCard
+                  key={image.id}
+                  imageUrl={image.url}
+                  altText={image.alt}
+                />
+              ))
+            )}
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </section>
   );
 };
 
+
 export default Gallery;
+
+
