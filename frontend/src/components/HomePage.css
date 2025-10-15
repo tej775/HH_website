@@ -218,14 +218,14 @@ section h3 {
   margin: 0 auto;
   
 }
-.carousel-item {
+.testimonials .carousel-item {
     width: 400px;      /* fixed width */
   height: 250px;     /* fixed height */
   flex-shrink: 0;
     transition: transform 0.3s 
 
 ease-in-out !important;}
-.carousel-item  .card{
+.testimonials .carousel-item  .card{
     height: 250px;
     width: 400px;
     border: none;

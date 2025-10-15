@@ -267,6 +267,11 @@ img {
 
 
   }
+  @media (max-width:425px){
+    .aims_n_objectives .c-btn{
+        gap: 10px !important;
+    }
+  }
 
   /* No extra white space on right */
  

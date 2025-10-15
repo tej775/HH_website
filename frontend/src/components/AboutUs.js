@@ -155,7 +155,7 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-        <div className="d-flex justify-content-center mt-md-3 gap-md-2">
+        <div className="d-flex justify-content-center mt-md-3 gap-md-2 c-btn">
           <button
             className="carousel-control-prev btn btn-hover p-2"
             type="button"
