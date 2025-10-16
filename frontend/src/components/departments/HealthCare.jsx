@@ -75,10 +75,15 @@
 
 import { useState, useEffect } from "react";
 import "./ImageCarousel.css";
+import * as bootstrap from "bootstrap";
 
-import img1 from "../assets/image.jpg";
-import img2 from "../assets/image.jpg";
-import img3 from "../assets/image.jpg";
+import img1 from "../../assets/healthcare1.jpg"
+import img2 from "../../assets/healthcare2.jpg";
+import img3 from "../../assets/healthcare_con5.jpg";
+import con1 from "../../assets/healthcare_con1.jpg";
+import con2 from "../../assets/healthcare_con2.jpg";
+import con3 from "../../assets/healthcare_con3.jpg";
+//import con4 from"../../assets/healthcare_con4.jpg";
 
 const images = [img1, img2, img3];
 
@@ -99,38 +104,45 @@ export default function HealthCare() {
     {
       id: 1,
       title: "2013 Mega Blood Donation",
-      image: img1,
+      image: con1,
       shortDesc:
         "Helping Hands conduct blood donation camp which involves organized blood drives...",
       fullDesc:
-        "Helping Hands conducted a Mega Blood Donation Camp in 2013 with active participation from students and staff. Hundreds of volunteers came forward, making it one of the most successful donation events in RGUKT history.",
+        "Helping Hands conduct blood donation camp which involves organized blood drives where volunteers registered, undergo health screenings, and donate blood. These events are crucial for maintaining a steady blood supply for hospitals. Trained staff ensure a safe and efficient process, while refreshments and rest areas help donors recover post-donation. Such initiatives save countless lives and support community health.",
     },
     {
       id: 2,
-      title: "Health Awareness Camp",
-      image: img2,
-      shortDesc: "Organized to promote regular health checkups and fitness awareness...",
+      title: "Distribution of Money for Ganesh who is suffering",
+      image: con2,
+      shortDesc: "Student named B.Ganesh from the 2018 batch has approached Helping Hands for his ...",
       fullDesc:
-        "This camp was aimed at promoting the importance of regular medical checkups and a healthy lifestyle. Doctors from reputed hospitals visited the campus and conducted free consultations and health screenings.",
+        "Student named B.Ganesh from the 2018 batch has approached Helping Hands for his surgery expenses as he is suffering from Hemisectomy. The cheque of 25,000/- was issued for his medical treatment.",
     },
     {
       id: 3,
       title: "Medical Aid Program",
-      image: img3,
+      image: con3,
       shortDesc: "Financial and emotional support to students and staff in need...",
       fullDesc:
         "The Medical Aid Program offers financial support to those who face medical emergencies. It ensures that every student and staff member receives timely medical assistance without any financial burden.",
     },
+    {
+      id: 4,
+      title: "Medical Aid Program",
+      image: con3,
+      shortDesc: "Financial and emotional support to students and staff in need...",
+      fullDesc:
+        "The Medical Aid Program offers financial support to those who face medical emergencies. It ensures that every student and staff member receives timely medical assistance without any financial burden.",
+    }
    
   ];
 
   const openModal = (card) => {
-    setModalData(card);
-    const modal = new window.bootstrap.Modal(
-      document.getElementById("infoModal")
-    );
-    modal.show();
-  };
+  setModalData(card);
+  const modal = new bootstrap.Modal(document.getElementById("infoModal"));
+  modal.show();
+};
+
 
   return (
     <div>
