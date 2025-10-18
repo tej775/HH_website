@@ -164,9 +164,10 @@
 //   );
 // }
 
+
+
 import React, { useState } from "react";
 import "./Certificatestyling.css";
-
 import emailjs from "@emailjs/browser";
 
 export default function Certificate() {
@@ -180,7 +181,6 @@ export default function Certificate() {
     startDate: "",
     endDate: "",
     position: "",
-    image: null,
   });
 
   const [certId, setCertId] = useState("");
@@ -188,7 +188,7 @@ export default function Certificate() {
   const [showForm, setShowForm] = useState(false);
   const [preview, setPreview] = useState(null);
 
-  // Handle input change
+  // ✅ Handle input change
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
@@ -205,9 +205,8 @@ export default function Certificate() {
     }
   };
 
-  const handleCertIdChange = (e) => {
-    setCertId(e.target.value);
-  };
+  // ✅ Certificate check (dummy)
+  const handleCertIdChange = (e) => setCertId(e.target.value);
 
   const handleCheckCertificate = () => {
     if (certId === "1234") {
@@ -224,57 +223,57 @@ export default function Certificate() {
     setShowCertificate(false);
   };
 
+  // ✅ EmailJS send (using template parameters)
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const templateParams = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      fatherName: formData.fatherName,
-      email: formData.email,
-      idNumber: formData.idNumber,
-      batch: formData.batch,
-      startDate: formData.startDate,
-      endDate: formData.endDate,
-      position: formData.position,
-      image: formData.image,
-    };
-
-    emailjs
-      .send(
-        "service_inj9e0p", // replace with your Service ID
-        "template_k6o1ow9", // replace with your Template ID
-        templateParams,
-        "piAk1P-3wU66ZCDWA" // replace with your Public Key
-      )
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        alert("Form submitted successfully! Email sent.");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          fatherName: "",
-          email: "",
-          idNumber: "",
-          batch: "",
-          startDate: "",
-          endDate: "",
-          position: "",
-          image: null,
-        });
-        setPreview(null);
-        setShowForm(false);
-      })
-      .catch((err) => {
-        console.error("FAILED...", err);
-        alert("Form submission failed. Try again.");
+  emailjs
+    .send(
+      "service_inj9e0p",
+      "template_k6o1ow9",
+      {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        fatherName: formData.fatherName,
+        email: formData.email,
+        idNumber: formData.idNumber,
+        batch: formData.batch,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        position: formData.position,
+      },
+      "piAk1P-3wU66ZCDWA"
+    )
+    .then((response) => {
+      console.log("SUCCESS!", response.status, response.text);
+      alert("Form submitted successfully! Email sent.");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        fatherName: "",
+        email: "",
+        idNumber: "",
+        batch: "",
+        startDate: "",
+        endDate: "",
+        position: "",
+       
       });
-  };
+      setPreview(null);
+      setShowForm(false);
+    })
+    .catch((err) => {
+      console.error("FAILED...", err);
+      alert("Form submission failed. Try again.");
+    });
+};
+
 
   return (
     <div className="form-container">
       <h2>Certificate / Registration</h2>
 
+      {/* 🔹 Certificate ID Check Section */}
       {!showForm && !showCertificate && (
         <div className="form-group">
           <label>Certificate ID (if known):</label>
@@ -304,6 +303,7 @@ export default function Certificate() {
         </div>
       )}
 
+      {/* 🔹 Show Certificate if Found */}
       {showCertificate && (
         <div className="certificate-preview mt-4 p-3 border border-success rounded">
           <h3>Certificate Generated!</h3>
@@ -315,6 +315,7 @@ export default function Certificate() {
         </div>
       )}
 
+      {/* 🔹 Registration Form */}
       {showForm && (
         <form onSubmit={handleSubmit} className="mt-4">
           <div className="form-group">
@@ -421,30 +422,7 @@ export default function Certificate() {
             </select>
           </div>
 
-          <div className="form-group">
-            <label>Upload your image:</label>
-            <input
-              type="file"
-              name="image"
-              accept="image/*"
-              onChange={handleChange}
-              required
-            />
-            {preview && (
-              <img
-                src={preview}
-                alt="preview"
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  borderRadius: "50%",
-                  marginTop: "10px",
-                  objectFit: "cover",
-                }}
-              />
-            )}
-          </div>
-
+          
           <button type="submit" className="submit-btn mt-2">
             Submit Form
           </button>
