@@ -1,5 +1,7 @@
 import React, { useState, useEffect,useRef } from "react";
-import "./HomePage.css"; // Move CSS there if you want
+import "./HomePage.css";
+import { useNavigate } from "react-router-dom";
+
 
 const images = [{
     image:"../images/carousal_image2.jpg",
@@ -76,6 +78,7 @@ const recoginitions = [
 
   const leftIndex = (centerIndex - 1 + images.length) % images.length;
   const rightIndex = (centerIndex + 1) % images.length;
+  const navigate = useNavigate();
 
   const nextImage = () => {
     setCenterIndex((prev) => (prev + 1) % images.length);
@@ -232,7 +235,9 @@ const recoginitions = [
   fontSize:"20px",
   cursor:"pointer",
   fontWeight:"600px !important",
-  transition:"background-color 0.3s",}}>Donate Us</button></section>
+  transition:"background-color 0.3s",}} onClick={()=>{
+            navigate('/donateUs')
+  }}>Donate Us</button></section>
   </div></div>
   
     
