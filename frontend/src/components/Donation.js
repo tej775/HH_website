@@ -36,7 +36,7 @@ function Donation() {
             <div className="col-lg-5 col-md-6 mb-4">
               <div className="card donation-card qr-code-card">
                 <div className="card-body p-0">
-                  <img src="/qr.jpg" alt="QR Code for Donation" className="qr-code" />
+                  <img src="/images/qr.jpg" alt="QR Code for Donation" className="qr-code" />
                 </div>
               </div>
             </div>

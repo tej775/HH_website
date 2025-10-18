@@ -25,9 +25,9 @@ export default function AboutUs() {
     >
       <h1
         className="heading_size"
-        style={{ marginBottom: "96px", color: "#7f1d1d" }}
+        style={{ marginTop: "100px", marginBottom: "30px", color: "#7f1d1d" }}
       >
-        A helping hand can be ray of sunshine in a cloudy world
+        "A helping hand can be ray of sunshine in a cloudy world"
       </h1>
       <section className="about_2">
        { about_2.map((item,index) => {

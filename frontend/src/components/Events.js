@@ -17,7 +17,7 @@ function Events(){
 
   const events = [
     {
-      img: "/14th Anniversary of Helping Hands.png",
+      img: "/images/14th Anniversary of Helping Hands.png",
       date: { day: '25', month: 'AUG' },
       title: '14th Anniversary of Helping Hands',
       desc: 'Marking 14 years of Helping Hands! Since 2009, your consistent encouragement has paved the way for an inspiring journey 💫',
@@ -26,7 +26,7 @@ function Events(){
       location: 'SAC BUILDING AUDITORIUM'
     },
     {
-      img: "/Cloth Distribution.jpeg",
+      img: "/images/Cloth Distribution.jpeg",
       date: { day: '25', month: 'AUG' },
       title: 'Cloth Distribution at MPP High School, Yanadi Colony.',
       desc : 'Helping Hands RGUKT, Nuzvid, an NGO, certified by the government, established by the students of RGUKT and supported by faculty, conducted a cloth distribution camp at MPP High School, Yanadi Colony, Nuzvid . These wearable dresses have been collected from students and faculty of RGUKT. HH collaborated with the Destiny Changes Foundation established by Alexander Pretham Jacob, to help the people in need around the village. The event was a huge success, with about 160 families benefiting from the distribution of nearly 2000 pairs of dresses. The cloth donation event was coordinated by the school teacher, Pamavathi Garu , along with the Headmaster Pardha Sarathi Garu and English teacher Joseph Garu, who played a significant role in making the event a huge success.',
@@ -35,7 +35,7 @@ function Events(){
       location: 'SAC BUILDING AUDITORIUM'
     },
     {
-      img: "/Cloth Distribution at RR peta.jpeg",
+      img: "/images/Cloth Distribution at RR peta.jpeg",
       date: { day: '25', month: 'AUG' },
       title: 'Cloth Distribution at RR peta and line thanda Village.',
       desc: 'Helping Hands RGUKT, Nuzvid, a government-certified NGO established by RGUKT students and supported by faculty, organized a cloth distribution camp in RR peta and Line thanda villages, Nuzvid. The event was highly successful, benefiting approximately 53 families, who received nearly 239 pairs of dresses.',
@@ -44,7 +44,7 @@ function Events(){
       location: 'SAC BUILDING AUDITORIUM'
     },
     {
-      img: "/Teckzite-23.png",
+      img: "/images/Teckzite-23.png",
       date: { day: '20', month: 'JAN' },
       title: 'Teckzite-23 Eco-Friendly Crafts Stall',
       desc: 'Aesthetically Pleasing and Environmentally Conscious? Here is A Clarion Call from Helping Hands to visit our Eco-Friendly Crafts Stall in Teckzite 23 and meet our new born Eco Hands.... Your Time & Visit inspires us. Visit the Stall & Buy our Unique Eco Crafts.',
@@ -54,35 +54,7 @@ function Events(){
     }
   ];
 
-  const archiveEvents = [
-    {
-      img: "/Covid Initiatives in Lockdown.jpg",
-      date: { day: '10', month: 'OCT' },
-      title: 'Covid Initiatives in Lockdown',
-      desc: 'During the lockdown period, Helping Hands took several initiatives to support the community. We organized food distribution drives, provided essential supplies to those in need, and collaborated with local authorities to ensure safety and well-being. Our volunteers worked tirelessly to make a positive impact during these challenging times.',
-      fullDate: 'October 10, 2022',
-      time: '4:00 PM - 6:00 PM',
-      location: 'Old Venue 1'
-    },
-    {
-      img: "/Entrepreneural Initiative.jpg",
-      date: { day: '16', month: 'DEC' },
-      title: 'Entrepreneurial Initiative',
-      desc: 'We stepped into Entrepreneurship and established an Enterprise - GROCERY STORE for the faculty members in RGUKT NUZVID on 16 Dec 2020, funded and administrating by HH.',
-      fullDate: 'December 16, 2020',
-      time: '2:00 PM - 5:00 PM',
-      location: 'Old Venue 2'
-    },
-    {
-      img: "/Mega Eye Camp 2019.jpg",
-      date: { day: '23', month: 'OCT' },
-      title: 'Mega Eye Camp',
-      desc: 'We successfully organized a Mega Eye Camp on 23/10/2016 in collaboration with Ashwani Foundation India. The eye camp benefited over 2500 people in the campus with free check-ups and medicines.',
-      fullDate: 'October 23, 2016',
-      time: '3:00 PM - 7:00 PM',
-      location: 'Old Venue 3'
-    }
-  ];
+
 
   const handleViewDetails = (event) => {
     setSelectedEvent(event);
@@ -100,7 +72,7 @@ function Events(){
         <div className="container">
           <div className="row g-4 justify-content-center">
             {events.map((event, index) => (
-              <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-sm-10" data-aos="fade-up" data-aos-delay={index * 100}>
+              <div key={index} className="col-xl-3 col-lg-4 col-md-6 col-11" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="card shadow-sm h-100 event-card events">
                   <img src={event.img} className="card-img-top" alt={event.title} />
                   <div className="card-body d-flex flex-column pt-4">
@@ -113,22 +85,7 @@ function Events(){
               </div>
             ))}
           </div>
-          <h2 className="text-center mt-5" style={{color:'#8B2323'}}>Archives</h2>
-          <div className="row g-4 justify-content-center">
-            {archiveEvents.map((event, index) => (
-              <div key={`archive-${index}`} className="col-xl-3 col-lg-4 col-md-6 col-sm-10" data-aos="fade-up" data-aos-delay={index * 100}>
-                <div className="card shadow-sm h-100 event-card events">
-                  <img src={event.img} className="card-img-top" alt={event.title} />
-                  <div className="card-body d-flex flex-column pt-4">
-                    <div className="event-date"><span>{event.date.day}</span>{event.date.month}</div>
-                    <h5 className="card-title mt-3" style={{color:'#8B2323'}}>{event.title}</h5>
-                    <p className="card-text flex-grow-1">{event.desc.length > 100 ? event.desc.substring(0, 100) + '...' : event.desc}</p>
-                    <button className="btn btn-outline-danger w-100 mt-auto rounded-pill" onClick={() => handleViewDetails(event)}>View Details</button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+
         </div>
       </section>
 

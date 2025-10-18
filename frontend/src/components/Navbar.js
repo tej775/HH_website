@@ -71,13 +71,45 @@ alt="Logo"
         >
           <ul className="navbar-nav d-flex flex-column flex-md-row justify-content-between align-items-center w-100">
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/">
+              <Link
+                className="nav-link fw-bold"
+                style={{ color: "maroon", transition: "all 0.3s ease" }}
+                to="/"
+                onMouseEnter={(e) => {
+                  e.target.style.color = "white";
+                  e.target.style.backgroundColor = "maroon";
+                  e.target.style.borderRadius = "5px";
+                  e.target.style.padding = "5px 10px";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "maroon";
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.borderRadius = "0";
+                  e.target.style.padding = "0";
+                }}
+              >
                 Home
               </Link>
             </li>
 
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/about">
+              <Link
+                className="nav-link fw-bold"
+                style={{ color: "maroon", transition: "all 0.3s ease" }}
+                to="/about"
+                onMouseEnter={(e) => {
+                  e.target.style.color = "white";
+                  e.target.style.backgroundColor = "maroon";
+                  e.target.style.borderRadius = "5px";
+                  e.target.style.padding = "5px 10px";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "maroon";
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.borderRadius = "0";
+                  e.target.style.padding = "0";
+                }}
+              >
                 About Us
               </Link>
             </li>
@@ -152,28 +184,112 @@ alt="Logo"
             </li>
 
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/events">
+              <Link
+                className="nav-link fw-bold"
+                style={{ color: "maroon", transition: "all 0.3s ease" }}
+                to="/events"
+                onMouseEnter={(e) => {
+                  e.target.style.color = "white";
+                  e.target.style.backgroundColor = "maroon";
+                  e.target.style.borderRadius = "5px";
+                  e.target.style.padding = "5px 10px";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "maroon";
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.borderRadius = "0";
+                  e.target.style.padding = "0";
+                }}
+              >
                 Events
               </Link>
             </li>
 
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/gallery">
+              <Link
+                className="nav-link fw-bold"
+                style={{ color: "maroon", transition: "all 0.3s ease" }}
+                to="/gallery"
+                onMouseEnter={(e) => {
+                  e.target.style.color = "white";
+                  e.target.style.backgroundColor = "maroon";
+                  e.target.style.borderRadius = "5px";
+                  e.target.style.padding = "5px 10px";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "maroon";
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.borderRadius = "0";
+                  e.target.style.padding = "0";
+                }}
+              >
                 Gallery
               </Link>
             </li>
 
             <li className="nav-item mx-2 my-1">
-              {isAdminPage && <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/admin/ourTeam">
-                Our Team
-              </Link>}
-             {!isAdminPage && <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/ourTeam">
-                Our Team
-              </Link>}
+              {isAdminPage && (
+                <Link
+                  className="nav-link fw-bold"
+                  style={{ color: "maroon", transition: "all 0.3s ease" }}
+                  to="/admin/ourTeam"
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "white";
+                    e.target.style.backgroundColor = "maroon";
+                    e.target.style.borderRadius = "5px";
+                    e.target.style.padding = "5px 10px";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "maroon";
+                    e.target.style.backgroundColor = "transparent";
+                    e.target.style.borderRadius = "0";
+                    e.target.style.padding = "0";
+                  }}
+                >
+                  Our Team
+                </Link>
+              )}
+              {!isAdminPage && (
+                <Link
+                  className="nav-link fw-bold"
+                  style={{ color: "maroon", transition: "all 0.3s ease" }}
+                  to="/ourTeam"
+                  onMouseEnter={(e) => {
+                    e.target.style.color = "white";
+                    e.target.style.backgroundColor = "maroon";
+                    e.target.style.borderRadius = "5px";
+                    e.target.style.padding = "5px 10px";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = "maroon";
+                    e.target.style.backgroundColor = "transparent";
+                    e.target.style.borderRadius = "0";
+                    e.target.style.padding = "0";
+                  }}
+                >
+                  Our Team
+                </Link>
+              )}
             </li>
 
             <li className="nav-item mx-2 my-1">
-              <Link className="nav-link fw-bold" style={{ color: "maroon" }} to="/certificate">
+              <Link
+                className="nav-link fw-bold"
+                style={{ color: "maroon", transition: "all 0.3s ease" }}
+                to="/certificate"
+                onMouseEnter={(e) => {
+                  e.target.style.color = "white";
+                  e.target.style.backgroundColor = "maroon";
+                  e.target.style.borderRadius = "5px";
+                  e.target.style.padding = "5px 10px";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "maroon";
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.borderRadius = "0";
+                  e.target.style.padding = "0";
+                }}
+              >
                 Certificate
               </Link>
             </li>
@@ -181,8 +297,16 @@ alt="Logo"
             <li className="nav-item mx-2 my-1">
               <Link
                 className="btn text-white"
-                style={{ backgroundColor: "#800000" }}
+                style={{ backgroundColor: "#800000", transition: "all 0.3s ease" }}
                 to="/donateUs"
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "#600000";
+                  e.target.style.border = "2px solid white";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "#800000";
+                  e.target.style.border = "none";
+                }}
               >
                 Donate Us
               </Link>
