@@ -84,7 +84,10 @@ import img3 from "../../assets/healthcare_con5.jpg";
 import con1 from "../../assets/healthcare_con1.jpg";
 import con2 from "../../assets/healthcare_con2.jpg";
 import con3 from "../../assets/healthcare_con3.jpg";
-//import con4 from"../../assets/healthcare_con4.jpg";
+import con4 from "../../assets/healthcare_con4.jpg";
+import con5 from "../../assets/healthcare_con5.jpg";
+import con7 from "../../assets/healthcare_con7.jpg";
+
 
 const images = [img1, img2, img3];
 
@@ -129,11 +132,27 @@ export default function HealthCare() {
     },
     {
       id: 4,
-      title: "Medical Aid Program",
-      image: con3,
-      shortDesc: "Financial and emotional support to students and staff in need...",
+      title: "EYE CAMP",
+      image: con4,
+      shortDesc: "We organized a large scale Eye and provided quality spectacles nearly to 2000 st...",
       fullDesc:
-        "The Medical Aid Program offers financial support to those who face medical emergencies. It ensures that every student and staff member receives timely medical assistance without any financial burden.",
+        "We organized a large scale Eye and provided quality spectacles nearly to 2000 students and faculty members, medicines and cataract surgeries for the two day eye camp in 2019 association with Aswini Foundation",
+    },
+    {
+      id: 5,
+      title: "Mega Health Camp -2013",
+      image: con5,
+      shortDesc: "Helping Hands organized a mega health camp offering free medical services, inclu...",
+      fullDesc:
+        "Helping Hands organized a mega health camp offering free medical services, including blood donation, health screenings, and consultations. Volunteers and medical professionals provided care to hundreds of students. The event included dental check-ups, eye exams, and vaccinations. Refreshments and educational materials were provided to promote healthy living. The camp successfully improved community health and raised awareness about preventive care.",
+    },
+    {
+      id: 6,
+      title: "Spects Distribution -2015",
+      image: con7,
+      shortDesc: "Helping Hands hosted an eye camp, providing essential eye care services to the s...",
+      fullDesc:
+        "Helping Hands hosted an eye camp, providing essential eye care services to the students. Attendees received free vision screenings, consultations with ophthalmologists, and prescription glasses.Informative sessions on maintaining eye health and preventing common eye diseases were part of the event. A great feedback regarding the quality of spectacles.",
     }
    
   ];
