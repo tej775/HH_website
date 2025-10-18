@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import "./ImageCarousel.css";
+import { useNavigate } from 'react-router-dom';
 
 import img1 from "../assets/image.jpg";
 import img2 from "../assets/image.jpg";
@@ -58,6 +59,7 @@ const InnovativeAndInfomative = () => {
               );
               modal.show();
             };
+    const navigate = useNavigate();
   return (
     <div>
      <div className="carousel-container two">
@@ -172,7 +174,9 @@ const InnovativeAndInfomative = () => {
               <br></br>
 
       <div className="btn-container">
-        <button className="btnDonate ">Donate Us</button>
+        <button className="btnDonate " onClick={()=>{
+            navigate('/donateUs')
+        }}>Donate Us</button>
       </div>
    </div>
   )

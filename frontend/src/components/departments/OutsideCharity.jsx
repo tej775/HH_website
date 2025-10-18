@@ -8,6 +8,7 @@ import con1 from "../../assets/outsidecharity_con1.jpg";
 import con2 from "../../assets/outsidecharity_con2.jpeg";
 import con3 from "../../assets/outsidecharity_con3.jpeg";
 import con4 from "../../assets/outsidecharity_con4.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const images = [img1, img2, img3];
 
@@ -70,6 +71,8 @@ export default function OutsideCharity() {
     );
     modal.show();
   };
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -200,7 +203,9 @@ export default function OutsideCharity() {
       <br></br>
 
       <div className="btn-container">
-        <button className="btnDonate ">Donate Us</button>
+        <button className="btnDonate" onClick={()=>{
+            navigate('/donateUs')
+        }}>Donate Us</button>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import img4 from "../../assets/publicrelations_con1.jpeg";
 import img5 from "../../assets/publicrelations_con2.jpeg";
 import img6 from "../../assets/publicrelations_con3.jpeg";
 import img7 from "../../assets/publicrelations_con4.jpeg";
+import { useNavigate } from 'react-router-dom';
 // import img8 from "../../assets/publicrelations_con5.jpeg"
 
 const images = [img1, img2, img3];
@@ -80,6 +81,7 @@ const PublicRelations = () => {
               );
               modal.show();
             };
+            const navigate = useNavigate();
   return (
     <div>
      <div className="carousel-container two">
@@ -193,7 +195,9 @@ const PublicRelations = () => {
               <br></br>
 
       <div className="btn-container">
-        <button className="btnDonate ">Donate Us</button>
+        <button className="btnDonate " onClick={()=>{
+            navigate('/donateUs')
+        }}>Donate Us</button>
       </div>
    </div>
   )

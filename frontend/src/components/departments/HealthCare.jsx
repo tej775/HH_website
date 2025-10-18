@@ -76,6 +76,7 @@
 import { useState, useEffect } from "react";
 import "./ImageCarousel.css";
 import * as bootstrap from "bootstrap";
+import { useNavigate } from "react-router-dom";
 
 import img1 from "../../assets/healthcare1.jpg"
 import img2 from "../../assets/healthcare2.jpg";
@@ -161,6 +162,8 @@ export default function HealthCare() {
   const modal = new bootstrap.Modal(document.getElementById("infoModal"));
   modal.show();
 };
+
+const navigate  = useNavigate();
 
 
   return (
@@ -286,7 +289,9 @@ export default function HealthCare() {
               <br></br>
 
       <div className="btn-container">
-        <button className="btnDonate ">Donate Us</button>
+        <button className="btnDonate " onClick={()=>{
+            navigate('/donateUs')
+        }}>Donate Us</button>
       </div>
     </div>
   );

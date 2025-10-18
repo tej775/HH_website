@@ -5,6 +5,7 @@ import "./ImageCarousel.css";
 import img1 from "../assets/image.jpg";
 import img2 from "../assets/image.jpg";
 import img3 from "../assets/image.jpg";
+import { useNavigate } from 'react-router-dom';
 
 const images = [img1, img2, img3];
 
@@ -56,6 +57,7 @@ const InternalCare = () => {
           );
           modal.show();
         };
+        const navigate = useNavigate();
     
   return (
    <div>
@@ -175,7 +177,9 @@ const InternalCare = () => {
       <br></br>
         
       <div className="btn-container">
-        <button className="btnDonate ">Donate Us</button>
+        <button className="btnDonate " onClick={()=>{
+            Navigate('/donateUs')
+        }}>Donate Us</button>
       </div>
     </div>
   )
