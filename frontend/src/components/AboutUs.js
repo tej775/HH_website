@@ -29,7 +29,7 @@ export default function AboutUs() {
       >
         "A helping hand can be ray of sunshine in a cloudy world"
       </h1>
-      <section className="about_2">
+      {/* <section className="about_2">
        { about_2.map((item,index) => {
             return(
                <div key={index} className="d-flex position-relative">
@@ -59,7 +59,22 @@ export default function AboutUs() {
         </div>
             )
         })}        
-      </section>
+      </section> */}
+      <section className="about_2 d-flex justify-content-center gap-4 flex-wrap">
+  {about_2.map((item, index) => (
+    <div key={index} >
+      <div className="about_card_image">
+        <img src={item.image} alt={item.heading} />
+      </div>
+      <div className="about_card" style={{ backgroundColor: item.bg_clr }}>
+        <h2 style={{ color: item.h1_clr }}>{item.heading}</h2>
+      <p>{item.matter}</p>
+      </div>
+      
+    </div>
+  ))}
+</section>
+
       <section className="aims_n_objectives">
       <h2 className="heading_size  text-center" style={{ color: "#7f1d1d" }}>
         Aims and Objectives

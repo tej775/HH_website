@@ -434,6 +434,129 @@ ease-in-out !important;}
   }
 }
 
+/* Testimonials Carousel Layout */
+#testimonial-carousel-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+#testimonial-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.testimonial-wrapper {
+  width: 30%;
+  opacity: 0.6;
+  transform: scale(0.9);
+  transition: all 0.4s ease;
+  margin: 0 10px;
+}
+
+.center-testimonial {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.card {
+  border: none;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.card-body {
+  text-align: center;
+  font-style: italic;
+}
+
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #7f1d1d;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+#testimonial-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* ensures all cards are same height */
+  min-height: 280px; /* or whatever your tallest testimonial height is */
+  transition: transform 0.5s ease;
+}
+
+.testimonial-wrapper .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* ===== Mobile Testimonials Fix ===== */
+@media (max-width: 768px) {
+  #testimonial-carousel {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .testimonial-wrapper {
+    display: none;
+    width: 90%;
+    opacity: 1;
+    transform: scale(1);
+    margin: 0 auto;
+  }
+
+  /* Show only center testimonial */
+  .center-testimonial {
+    display: block !important;
+  }
+
+  /* Arrows below testimonial */
+  #testimonial-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+  }
+
+  #testimonial-arrows .arrow-btn {
+    position: relative;
+    top: 0;
+    transform: none;
+    width: 45px;
+    height: 45px;
+    background-color: #7f1d1d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+
+
 
 
 
