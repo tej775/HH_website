@@ -60,7 +60,7 @@ export default function AboutUs() {
             )
         })}        
       </section> */}
-      <section className="about_2 d-flex justify-content-center gap-4 flex-wrap">
+      <section className="about_2 d-flex justify-content-around flex-wrap w-75" style={{gap:"10px"}}>
   {about_2.map((item, index) => (
     <div key={index} >
       <div className="about_card_image">

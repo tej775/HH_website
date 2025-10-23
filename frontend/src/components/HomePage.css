@@ -442,6 +442,7 @@ ease-in-out !important;}
   align-items: center;
   overflow: hidden;
   margin-top: 30px;
+  flex-direction: column;
 }
 
 #testimonial-carousel {
@@ -532,9 +533,10 @@ ease-in-out !important;}
   /* Arrows below testimonial */
   #testimonial-arrows {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 25px;
     margin-top: 15px;
+    width: 100%;
   }
 
   #testimonial-arrows .arrow-btn {
@@ -552,6 +554,7 @@ ease-in-out !important;}
     justify-content: center;
     align-items: center;
   }
+  
 }
 
 

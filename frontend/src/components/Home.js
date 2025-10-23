@@ -281,7 +281,7 @@ const recoginitions = [
 
       <div className="testimonial-wrapper center-testimonial">
         <div className="card">
-          <div className="card-body">
+          <div className="card-body fw-bold">
             <p className="card-text">{testimonials[testimonialIndex].content}</p>
             <p className="card-text">
               <small style={{ color: "#7f1d1d" }}>{testimonials[testimonialIndex].by}</small>
