@@ -499,7 +499,7 @@ ease-in-out !important;}
   display: flex;
   justify-content: center;
   align-items: stretch; /* ensures all cards are same height */
-  min-height: 280px; /* or whatever your tallest testimonial height is */
+  min-height: 320px; /* or whatever your tallest testimonial height is */
   transition: transform 0.5s ease;
 }
 
@@ -515,6 +515,7 @@ ease-in-out !important;}
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-height: 400px;
   }
 
   .testimonial-wrapper {
