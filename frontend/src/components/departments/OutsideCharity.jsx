@@ -54,7 +54,7 @@ export default function OutsideCharity() {
         "As part of a social visit,we tourned Sneha Rides orphanage in Nuzvid and spent quality time with the children in the home",
     },
     {
-      id: 3,
+      id: 4,
       title: "Vegetable Distribution -2021",
       image: con4,
       shortDesc:
@@ -120,36 +120,33 @@ export default function OutsideCharity() {
           beyond the boundaries of the institution.
         </div>
       </div>
+      <br></br>
 
       {/* -------- NEW BOOTSTRAP CARDS -------- */}
-      <div className="container my-5">
-        <h2 className="text-center mb-4 text-black fw-bold">
-          Our Contributions
-        </h2>
-        <div className="row justify-content-center g-4">
-          {cards.map((card) => (
-            <div className="col-md-4" key={card.id}>
-              <div className="card shadow h-100">
-                <img
-                  src={card.image}
-                  className="card-img-top"
-                  alt={card.title}
-                />
-                <div className="card-body d-flex flex-column">
-                  <h5 className="card-title">{card.title}</h5>
-                  <p className="card-text">{card.shortDesc}</p>
-                  <button
-                    className="btn btn-dark mt-auto"
-                    onClick={() => openModal(card)}
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+      
+ 
+     <h2 className="text-center mb-4 text-black fw-bold">Our Contributions</h2>  <br></br>
+     <div className="row g-0 justify-content-center" >
+  {cards.map((card) => (
+    <div className="col-md-6 col-lg-5 d-flex justify-content-center" key={card.id} style={{marginBottom: "40px"}}>
+      <div className="card shadow h-100" style={{ width: "100%", maxWidth: "480px"}}>
+        <img src={card.image} className="card-img-top" alt={card.title} />
+        <div className="card-body d-flex flex-column">
+          <h5 className="card-title">{card.title}</h5>
+          <p className="card-text">{card.shortDesc}</p>
+          <button
+            className="btn btn-dark mt-auto"
+            onClick={() => openModal(card)}
+          >
+            Read More
+          </button>
         </div>
       </div>
+    </div>
+  ))}
+</div>
+
+
 
       {/* -------- MODAL -------- */}
       <div

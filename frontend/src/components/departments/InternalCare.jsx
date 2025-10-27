@@ -5,11 +5,12 @@ import "./ImageCarousel.css";
 import img1 from "../assets/image.jpg";
 import img2 from "../assets/image.jpg";
 import img3 from "../assets/image.jpg";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Navigate} from 'react-router-dom';
 
 const images = [img1, img2, img3];
 
 const InternalCare = () => {
+
      const [index, setIndex] = useState(0);
       const [modalData, setModalData] = useState({});
     
