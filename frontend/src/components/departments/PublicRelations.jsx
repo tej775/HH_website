@@ -124,7 +124,7 @@ const PublicRelations = () => {
         <h2 className="text-center mb-4 text-black fw-bold">Our Contributions</h2>
         <div className="row justify-content-center g-4">
           {cards.map((card) => (
-            <div className="col-md-4" key={card.id}>
+            <div className="col-md-4 depart" key={card.id}>
               <div className="card shadow h-100">
                 <img src={card.image} className="card-img-top" alt={card.title} />
                 <div className="card-body d-flex flex-column">

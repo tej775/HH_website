@@ -128,7 +128,7 @@ export default function OutsideCharity() {
      <h2 className="text-center mb-4 text-black fw-bold">Our Contributions</h2>  <br></br>
      <div className="row g-0 justify-content-center" >
   {cards.map((card) => (
-    <div className="col-md-6 col-lg-5 d-flex justify-content-center" key={card.id} style={{marginBottom: "40px"}}>
+    <div className="col-md-6 col-lg-5 d-flex justify-content-center depart" key={card.id} style={{marginBottom: "40px"}}>
       <div className="card shadow h-100" style={{ width: "100%", maxWidth: "480px"}}>
         <img src={card.image} className="card-img-top" alt={card.title} />
         <div className="card-body d-flex flex-column">
