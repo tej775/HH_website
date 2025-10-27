@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaTwitter, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 export default function Footer() {
   const [visits, setVisits] = useState(0);
@@ -19,33 +24,70 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer style={{ backgroundColor: "black", color: "white" }}>
+    <footer style={{ backgroundColor: "black", color: "white"
+
+     }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "20px" }}>
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: "20px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "flex-start",
+            gap: "20px",
+            maxHeight:'50px'
+          }}
+        >
           {/* Logo + Title + Description */}
-          <div style={{ display: "flex", flex: "1 1 300px", marginBottom: "20px" }}>
-            <img src="./images/hhlogo.png" alt="Logo" width={100} height={80} style={{ marginRight: "15px" }} />
+          <div
+            style={{ display: "flex", flex: "1 1 300px", marginBottom: "20px" }}
+          >
+            <img
+              src="./images/hhlogo.png"
+              alt="Logo"
+              width={70}
+              height={70}
+              style={{ marginRight: "15px" }}
+            />
             <div>
-              <span style={{ fontWeight: "bold", fontSize: "18px", display: "block" }}>
+              <span
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "18px",
+                  display: "block",
+                }}
+              >
                 Helping Hands RGUKT Nuzvid
               </span>
               <p style={{ marginTop: "5px", lineHeight: "1.4" }}>
-                Catering to the Educational Needs of Gifted Rural Youth of Andhra Pradesh
+                A Students's Initiative - An Abode of Service
                 <br />
-                (Established by the Govt. of Andhra Pradesh and recognized as per Section 2(f), 12(B) of UGC Act, 1956)
+                (Regd No. 313/2019 under the A.P. Societies Registration Act,
+                2001)
               </p>
             </div>
           </div>
 
           {/* Quick Links */}
           <div style={{ flex: "1 1 150px", marginBottom: "20px" }}>
-            <h6 style={{ fontWeight: "bold", marginBottom: "8px" }}>Quick Links</h6>
+            <h6 style={{ fontWeight: "bold", marginBottom: "8px" }}>
+              Quick Links
+            </h6>
             <ul style={{ listStyle: "none", padding: 0 }}>
               <li>
-                <Link to="/about" style={{ color: "white", textDecoration: "none" }}>About Us</Link>
+                <Link
+                  to="/about"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link to="/contact" style={{ color: "white", textDecoration: "none" }}>Contact Us</Link>
+                <Link
+                  to="/contact"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
@@ -53,41 +95,77 @@ export default function Footer() {
       </div>
 
       {/* Social Icons */}
-      <div style={{ display: "flex", justifyContent: "center", gap: "15px", marginBottom: "20px" }}>
-        <a href="https://www.facebook.com/rgukthelpinghands" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "20px",
+          marginTop: "20px",
+        }}
+      >
+        <a
+          href="https://www.facebook.com/rgukthelpinghands"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "white" }}
+        >
           <FaFacebookF size={20} />
         </a>
-        <a href="https://x.com/HH_RguktN" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+        <a
+          href="https://x.com/HH_RguktN"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "white" }}
+        >
           <FaTwitter size={20} />
         </a>
-        <a href="https://www.instagram.com/helpinghands_rguktn/" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+        <a
+          href="https://www.instagram.com/helpinghands_rguktn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "white" }}
+        >
           <FaInstagram size={20} />
         </a>
-        <a href="https://www.whatsapp.com/channel/0029VahYAYdEgGfNOxdJXH2u" target="_blank" rel="noopener noreferrer" style={{ color: "white" }}>
+        <a
+          href="https://www.whatsapp.com/channel/0029VahYAYdEgGfNOxdJXH2u"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "white" }}
+        >
           <FaWhatsapp size={20} />
         </a>
       </div>
 
       {/* Bottom Section */}
-      <div style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "10px 20px",
-        backgroundColor: "#d3d3d3",
-        color: "black"
-      }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "10px 20px",
+          paddingBottom:"0px",
+          maxHeight:'67px'
+         
+        }}
+      >
         {/* Centered copyright */}
-        <div style={{ flex: "1 1 100%", textAlign: "center", marginBottom: "5px" }}>
+        <div
+          style={{ flex: "1 1 100%", textAlign: "center", marginBottom: "5px" }}
+        >
           © 2025 RGUKT-AP. All Rights Reserved.
           <br />
           Designed, Developed & Maintained By RGUKT Webteam
         </div>
 
         {/* Site Visits */}
-        <div style={{ flex: "1 1 100%", textAlign: "right" }}>
-          👁️‍🗨️ <span >Site Visits:</span> {visits}
+        <div style={{ flex: "1 1 100%", textAlign: "right" ,
+          position:' relative',
+    top:' -184px',
+    left:' -40px;'
+          } }>
+          👁‍🗨 <span>Site Visits:</span> {visits}
         </div>
       </div>
     </footer>
