@@ -179,7 +179,7 @@ const InternalCare = () => {
         
       <div className="btn-container">
         <button className="btnDonate " onClick={()=>{
-            Navigate('/donateUs')
+            navigate('/donateUs')
         }}>Donate Us</button>
       </div>
     </div>

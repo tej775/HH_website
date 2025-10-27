@@ -16,6 +16,7 @@ const images = [{
 
 export default function Home() {
   const [centerIndex, setCenterIndex] = useState(0);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [autoScroll, setAutoScroll] = useState(null);
   const testimonials = [
     {
@@ -194,37 +195,139 @@ const recoginitions = [
        
        
         </section>
-    <section className="testimonials">
-          <h3 className="text-center" style={{color:"#7f1d1d"}}>Testimonials</h3>
+  {/* <section className="testimonials py-5">
+  <h3 className="text-center" style={{ color: "#7f1d1d" }}>Testimonials</h3>
 
-        <div id="carouselExample" className="carousel slide">
-  <div className="carousel-inner">
-    { testimonials.map((item,index) => {
-        return(
-            <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`} style={{marginRight:"0px"}}>
-        <div className="card ">
-  <div className="card-body">
-    <p className="card-text">{item.content}
-    </p>
- 
-    <p className="card-text"><small  style={{color:"#7f1d1d"}}>{item.by}</small></p>
-</div> </div>
-    </div> 
-        )
-     })}
- 
+  <div id="testimonial-carousel-container">
+    <div id="testimonial-carousel">
+      <div className="testimonial-wrapper left-testimonial">
+        <div className="card">
+          <div className="card-body">
+            <p className="card-text">
+              {testimonials[(testimonialIndex - 1 + testimonials.length) % testimonials.length].content}
+            </p>
+            <p className="card-text">
+              <small style={{ color: "#7f1d1d" }}>
+                {testimonials[(testimonialIndex - 1 + testimonials.length) % testimonials.length].by}
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="testimonial-wrapper center-testimonial">
+        <div className="card">
+          <div className="card-body">
+            <p className="card-text">{testimonials[testimonialIndex].content}</p>
+            <p className="card-text">
+              <small style={{ color: "#7f1d1d" }}>{testimonials[testimonialIndex].by}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="testimonial-wrapper right-testimonial">
+        <div className="card">
+          <div className="card-body">
+            <p className="card-text">
+              {testimonials[(testimonialIndex + 1) % testimonials.length].content}
+            </p>
+            <p className="card-text">
+              <small style={{ color: "#7f1d1d" }}>
+                {testimonials[(testimonialIndex + 1) % testimonials.length].by}
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button
+      className="arrow-btn arrow-left"
+      onClick={() => setTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+    >
+      &#8592;
+    </button>
+
+    <button
+      className="arrow-btn arrow-right"
+      onClick={() => setTestimonialIndex((prev) => (prev + 1) % testimonials.length)}
+    >
+      &#8594;
+    </button>
   </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" >
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-</div></section>
+</section> */}
+<section className="testimonials py-5">
+  <h3 className="text-center" style={{ color: "#7f1d1d" }}>
+    Testimonials
+  </h3>
+
+  <div id="testimonial-carousel-container">
+    <div id="testimonial-carousel">
+      <div className="testimonial-wrapper left-testimonial">
+        <div className="card">
+          <div className="card-body">
+            <p className="card-text">
+              {testimonials[(testimonialIndex - 1 + testimonials.length) % testimonials.length].content}
+            </p>
+            <p className="card-text">
+              <small style={{ color: "#7f1d1d" }}>
+                {testimonials[(testimonialIndex - 1 + testimonials.length) % testimonials.length].by}
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="testimonial-wrapper center-testimonial">
+        <div className="card">
+          <div className="card-body fw-bold">
+            <p className="card-text">{testimonials[testimonialIndex].content}</p>
+            <p className="card-text">
+              <small style={{ color: "#7f1d1d" }}>{testimonials[testimonialIndex].by}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="testimonial-wrapper right-testimonial">
+        <div className="card">
+          <div className="card-body">
+            <p className="card-text">
+              {testimonials[(testimonialIndex + 1) % testimonials.length].content}
+            </p>
+            <p className="card-text">
+              <small style={{ color: "#7f1d1d" }}>
+                {testimonials[(testimonialIndex + 1) % testimonials.length].by}
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom arrow container for mobile */}
+    <div id="testimonial-arrows">
+      <button
+        className="arrow-btn arrow-left"
+        onClick={() => setTestimonialIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+      >
+        &#8592;
+      </button>
+      <button
+        className="arrow-btn arrow-right"
+        onClick={() => setTestimonialIndex((prev) => (prev + 1) % testimonials.length)}
+      >
+        &#8594;
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
 <section className="donate">
-    <p className="fw-bold text-center" style={{fontSize:"25px"}}><quote>" A helping hand costs nothing,but it make a priceless impact on the world. "</quote></p>
+    <p className="fw-bold text-center" style={{fontSize:"25px"}}>" A helping hand costs nothing,but it make a priceless impact on the world. "</p>
     <button type="button" className="btn" style={{ padding: "10px 30px",
   borderRadius:"50px",
   border: "none",             

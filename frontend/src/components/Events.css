@@ -17,8 +17,8 @@ body {
 }
 .events .card-img-top {
   height: 200px;
-  object-fit: contain;
-  padding: 10px;
+  /* object-fit: contain;
+  padding: 10px; */
 }
 .event-card .card-body {
     position: relative;
@@ -67,6 +67,18 @@ body {
     .event-date span {
         font-size: 1.2rem;
     }
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .row.g-4 {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+    .col-xl-3, .col-lg-4, .col-md-6, .col-sm-10 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -88,5 +100,27 @@ body {
     }
     .modal-content {
         border-radius: 0.5rem;
+    }
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .row.g-4 {
+        --bs-gutter-x: 0.5rem;
+        --bs-gutter-y: 0.5rem;
+    }
+    .col-xl-3, .col-lg-4, .col-md-6, .col-sm-10 {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .card-text {
+        font-size: 0.9rem;
+    }
+    .btn-outline-danger {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
     }
 }

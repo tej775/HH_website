@@ -25,11 +25,11 @@ export default function AboutUs() {
     >
       <h1
         className="heading_size"
-        style={{ marginBottom: "96px", color: "#7f1d1d" }}
+        style={{ marginTop: "100px", marginBottom: "30px", color: "#7f1d1d" }}
       >
-        A helping hand can be ray of sunshine in a cloudy world
+        "A helping hand can be ray of sunshine in a cloudy world"
       </h1>
-      <section className="about_2">
+      {/* <section className="about_2">
        { about_2.map((item,index) => {
             return(
                <div key={index} className="d-flex position-relative">
@@ -59,7 +59,22 @@ export default function AboutUs() {
         </div>
             )
         })}        
-      </section>
+      </section> */}
+      <section className="about_2 d-flex justify-content-around flex-wrap w-75" style={{gap:"10px"}}>
+  {about_2.map((item, index) => (
+    <div key={index} >
+      <div className="about_card_image">
+        <img src={item.image} alt={item.heading} />
+      </div>
+      <div className="about_card" style={{ backgroundColor: item.bg_clr }}>
+        <h2 style={{ color: item.h1_clr }}>{item.heading}</h2>
+      <p>{item.matter}</p>
+      </div>
+      
+    </div>
+  ))}
+</section>
+
       <section className="aims_n_objectives">
       <h2 className="heading_size  text-center" style={{ color: "#7f1d1d" }}>
         Aims and Objectives
@@ -201,7 +216,7 @@ export default function AboutUs() {
           Departments
         </h2>
         <img
-          src="/images/department.png"
+          src="/images/departments.jpeg"
           alt=""
           height="600px"
           width="800px"

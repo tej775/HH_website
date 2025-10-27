@@ -91,12 +91,7 @@ body,
   padding: 0;
 }
 
-.about_2 {
-  
-  width: 100%;
-  max-width: 800px;
-  color: white;
-}
+
 
 
 .carousel-controls-bottom {
@@ -123,7 +118,7 @@ body,
 }
 
 .card-hover-grey:hover {
-  background-color: #6c757d !important;
+  background-color: #f89d9de1 !important; /* Light maroon color */
   color: white;
   transition: background-color 0.3s ease;
 }
@@ -186,10 +181,7 @@ img {
     font-size: 1.3rem;
   }
 
-  .about_2 {
-    max-width: 100%;
-    padding: 0 15px;
-  }
+  
 
   .card-group {
     flex-direction: column;
@@ -219,9 +211,7 @@ img {
     font-size: 1.1rem;
     text-align: center;
   }
-  .about_2 div h2{
-    margin-left: 37px !important;
-  }
+  
 
   .charity_para {
     font-size: 0.9rem;
@@ -279,8 +269,204 @@ img {
         gap: 10px !important;
     }
   }
+.about_2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-  /* No extra white space on right */
- 
+.about_card {
+  position: relative;
+  width: 300px;
+  padding: 20px 20px 40px 20px;
+  text-align: center;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about_card_image {
+  position: relative;
+  top: 40px; /* half of image height to make it overlap */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 1;
+  border: 4px solid #fff;
+  background-color: #fff;
+}
+
+.about_card_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about_card h2 {
+  margin-top: 50px; /* space below circular image */
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.about_card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+/* ---------------- About_2 Section ---------------- */
+.about_2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.about_card {
+  position: relative;
+  width: 300px;
+  padding: 20px 20px 40px 20px;
+  text-align: center;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.about_card_image {
+  position: relative;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 1;
+  border: 4px solid #fff;
+  background-color: #fff;
+}
+
+.about_card_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about_card h2 {
+  margin-top: 50px;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.about_card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ---------------- Responsive ---------------- */
+
+/* Tablets (≤991px) */
+@media (max-width: 991px) {
+  .about_2 {
+    gap: 1.5rem;
+  }
+
+  .about_card {
+    width: 260px;
+  }
+
+  .about_card h2 {
+    font-size: 1.2rem;
+  }
+
+  .about_card p {
+    font-size: 0.9rem;
+  }
+
+  .about_card_image {
+    width: 70px;
+    height: 70px;
+    top: 35px;
+  }
+}
+
+/* Phones (≤767px) */
+@media (max-width: 767px) {
+  .about_2 {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .about_card {
+    width:100%;
+    max-width: 340px;
+    padding: 20px 15px 35px 15px;
+
+  }
+
+  .about_card_image {
+    width: 65px;
+    height: 65px;
+    top: 30px;
+  }
+
+  .about_card h2 {
+    font-size: 1.1rem;
+  }
+
+  .about_card p {
+    font-size: 0.9rem;
+  }
+}
+/* ---------------- Departments Section ---------------- */
+.departments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.departments img {
+  width: 100%;
+  max-width: 900px; /* keeps it big on desktop */
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Tablet view */
+@media (max-width: 991px) {
+  .departments img {
+    max-width: 95%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+  .departments img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}
+
 
 
