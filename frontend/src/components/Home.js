@@ -327,7 +327,7 @@ const recoginitions = [
 
 
 <section className="donate">
-    <p className="fw-bold text-center" style={{fontSize:"25px"}}><quote>" A helping hand costs nothing,but it make a priceless impact on the world. "</quote></p>
+    <p className="fw-bold text-center" style={{fontSize:"25px"}}>" A helping hand costs nothing,but it make a priceless impact on the world. "</p>
     <button type="button" className="btn" style={{ padding: "10px 30px",
   borderRadius:"50px",
   border: "none",             

@@ -216,7 +216,7 @@ export default function AboutUs() {
           Departments
         </h2>
         <img
-          src="/images/department.png"
+          src="/images/departments.jpeg"
           alt=""
           height="600px"
           width="800px"
